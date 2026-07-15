@@ -65,15 +65,15 @@ export default function DashboardMockup() {
     <div className="overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5">
       {/* Browser chrome */}
       <div className="flex items-center border-b border-slate-100 bg-slate-50 px-4 py-3">
-        <div className="flex gap-1.5">
+        <div className="hidden sm:flex gap-1.5">
           <span className="h-3 w-3 rounded-full bg-red-600" />
           <span className="h-3 w-3 rounded-full bg-yellow-400" />
           <span className="h-3 w-3 rounded-full bg-blue-400" />
         </div>
         <div className="mx-auto rounded-md bg-white px-3 py-1 font-mono text-xs text-slate-400 ring-1 ring-slate-200 min-w-48 text-center">
-          app.emulsion.com
+          app.emulsionfs.com
         </div>
-        <div className="flex gap-1.5 text-slate-500 text-xs">
+        <div className="hidden sm:flex gap-1.5 text-slate-400 text-[10px]">
           <p>Last Updated 7 min ago</p>
         </div>
       </div>

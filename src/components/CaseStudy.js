@@ -1,4 +1,4 @@
-import {ArrowRightIcon} from "lucide-react";
+import {ArrowDownIcon, ArrowRightIcon} from "lucide-react";
 
 export default function CaseStudy() {
   return (
@@ -8,23 +8,26 @@ export default function CaseStudy() {
           <div className="p-8 lg:p-12">
             <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
               {/* Left: headline stat */}
-              <div>
+              <div className='space-y-8 sm:space-x-6 text-center sm:text-left'>
                 <p className="font-mono text-sm font-semibold tracking-[0.2em] text-cyan-400">
                   CASE STUDY
                 </p>
-                <p className="text-[80px] flex items-center space-x-4">
-                  <span className="text-white">Weeks</span>
-                  <ArrowRightIcon className='size-12 text-slate-400' />
-                  <span className="text-cyan-600">Hours</span>
-                </p>
-                <p className="font-mono text-sm tracking-[0.2em] text-slate-500">
-                  REPORT GENERATION TIME
-                </p>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 items-center'>
+                  <p className="text-white text-7xl text-center">Weeks</p>
+                  <div className='flex justify-center'>
+                    <ArrowRightIcon className='size-12 text-slate-400 hidden sm:inline' />
+                    <ArrowDownIcon className='size-12 text-slate-400 inline sm:hidden' />
+                  </div>
+                  <p className="text-cyan-600 text-7xl text-center lg:text-left">Hours</p>
+                </div>
+                {/*<p className="font-mono text-sm tracking-[0.2em] text-slate-500">*/}
+                {/*  REPORT GENERATION TIME*/}
+                {/*</p>*/}
               </div>
 
               {/* Right: the story, hung off a vertical rule */}
               <div className="lg:border-l lg:border-white/10 lg:pl-12">
-                <p className="text-lg leading-8 text-slate-400">
+                <p className="text-lg leading-8 text-slate-300">
                   A serial acquirer of Southwest U.S. utility companies ran every entity
                   on a different accounting system. Emulsion connected them all behind
                   one login — historical data extracted and preserved, live systems

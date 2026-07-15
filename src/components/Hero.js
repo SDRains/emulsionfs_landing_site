@@ -61,7 +61,7 @@ export default function Hero() {
           negative bottom margin) so its lower portion straddles onto the navy
           band that follows. Tune the -mb / navy pt pair together to move the
           cream→navy seam up or down across the window. */}
-      <div className="relative z-10 mx-auto -mb-24 mt-16 sm:-mt-16 max-w-5xl px-6 sm:-mb-36 lg:-mb-60">
+      <div className="relative z-10 mx-auto -mb-24 mt-0 sm:-mt-16 max-w-5xl px-6 sm:-mb-36 lg:-mb-60">
         <DashboardMockup />
       </div>
     </section>

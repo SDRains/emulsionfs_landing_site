@@ -38,7 +38,7 @@ export default function Audience() {
               key={s.number}
               className="grid gap-x-12 gap-y-2 border-b border-slate-200 py-8 md:grid-cols-[3rem_minmax(0,24rem)_minmax(0,1fr)] md:items-start md:py-10"
             >
-              <span className="font-mono text-sm text-blue-600">
+              <span className="font-mono text-sm text-cyan-600">
                 {s.number}
               </span>
               <h3 className="text-xl font-bold text-[#141414]">{s.title}</h3>

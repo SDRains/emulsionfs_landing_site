@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0b1a2e] text-white">
+    <div className="min-h-screen bg-primary-cream text-white">
       <Seo
         title="Emulsion — All your financial data, one source of truth"
         description="Emulsion unifies JD Edwards, Sage Intacct, QuickBooks, and every platform you've inherited into one searchable, permanent source of truth. One login, live and historical."

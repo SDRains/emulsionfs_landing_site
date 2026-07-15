@@ -19,8 +19,8 @@ const REASONS = [
 
 export default function WhyNow() {
   return (
-    <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+    <section className="bg-primary-cream text-[#141414]">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-600">*/}
         {/*  WHY NOW*/}
         {/*</p>*/}
@@ -28,9 +28,9 @@ export default function WhyNow() {
           The pain is rising and the enabling technology has arrived.
         </h2>
 
-        <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
           {REASONS.map((r) => (
-            <div key={r.title} className="border-t-2 border-cyan-600 pt-6">
+            <div key={r.title} className="border-t-2 border-cyan-600/15 sm:border-dark-blue/30 border-dashed py-8 sm:py-4">
               <h3 className="text-lg font-bold text-[#141414]">{r.title}</h3>
               <p className="mt-4 text-base leading-7 text-slate-500">{r.body}</p>
             </div>
