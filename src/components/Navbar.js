@@ -67,7 +67,7 @@ export default function Navbar({activePage = "home"}) {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-slate-200 transition-colors hover:bg-white/10 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-dark-blue transition-colors hover:text-dark-blue/60 md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -99,32 +99,33 @@ export default function Navbar({activePage = "home"}) {
 
       {/* Mobile menu panel */}
       {open && (
-        <div className="border-t border-white/10 bg-[#0b1a2e] md:hidden">
-          <ul className="flex flex-col gap-1 px-6 py-4">
+        <div className="bg-primary-cream md:hidden shadow-lg">
+          <ul className="flex flex-col gap-1 px-6 py-0">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-2 py-3 text-lg text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
+                  className={`block rounded-md p-2 text-lg text-dark-blue transition-colors 
+                  ${activePage === link.id ? 'font-bold bg-dark-blue/5' : ''}`}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex flex-col gap-3 border-t border-white/10 px-6 py-5">
+          <div className="flex flex-col gap-3 border-t border-dark-blue/10 border-dashed px-6 py-5 mt-2">
             <a
               href="#sign-in"
               onClick={() => setOpen(false)}
-              className="text-center text-lg text-slate-200 transition-colors hover:text-white"
+              className="text-center text-lg text-dark-blue transition-colors hover:text-white"
             >
               Sign in
             </a>
             <a
               href="#book-a-demo"
               onClick={() => setOpen(false)}
-              className="rounded-full bg-cyan-500 px-5 py-3 text-center text-lg font-semibold text-[#0b1a2e] transition-colors hover:bg-cyan-400"
+              className="rounded-full bg-cyan-600 px-5 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-cyan-500"
             >
               Book a demo
             </a>
