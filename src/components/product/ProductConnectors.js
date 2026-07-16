@@ -101,7 +101,7 @@ export default function ProductConnectors() {
             ))}
 
             {/* Custom-connector CTA card */}
-            <div className="rounded-xl border-2 border-dashed border-cyan-500 bg-neutral-50 p-6">
+            <div className="rounded-xl border-2 border-dashed border-dark-blue/20 p-6">
               <h3 className="text-lg font-bold text-cyan-600">
                 Something else?
               </h3>
