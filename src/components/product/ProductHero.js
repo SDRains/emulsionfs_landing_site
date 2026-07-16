@@ -26,13 +26,13 @@ export default function ProductHero() {
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="#book-a-demo"
+            href="/contact?intent=demo"
             className="rounded-full bg-cyan-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500"
           >
             Book a demo
           </a>
           <a
-            href="#talk-to-a-consultant"
+            href="/contact?intent=sales"
             className="group inline-flex items-center gap-2 rounded-full border border-slate-300 px-7 py-3.5 text-base font-semibold text-dark-blue transition-colors hover:bg-black/[0.03]"
           >
             Talk to a consultant

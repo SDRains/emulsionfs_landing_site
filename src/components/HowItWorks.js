@@ -91,10 +91,10 @@ export default function HowItWorks() {
         {/*<p className="text-center font-mono text-sm font-semibold tracking-[0.2em] text-cyan-600">*/}
         {/*  HOW IT WORKS*/}
         {/*</p>*/}
-        <h2 className="mx-auto max-w-3xl text-center font-serif text-4xl leading-tight text-[#0f2038] sm:text-5xl lg:text-6xl font-semibold">
+        <h2 className="mx-auto max-w-3xl text-center text-5xl leading-tight text-[#0f2038] sm:text-5xl lg:text-6xl font-extrabold">
           Two ways to connect,
           <br />
-          <span className="italic text-cyan-600">one place to work.</span>
+          <span className="font-serif italic text-cyan-600">one place to work.</span>
         </h2>
 
         <div className="mt-12 grid items-center gap-8 lg:mt-16 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">

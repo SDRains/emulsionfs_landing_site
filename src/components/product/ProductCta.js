@@ -5,7 +5,7 @@ export default function ProductCta() {
         <h2 className="font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl lg:text-6xl">
           Tell us what you&apos;re running.
           <br />
-          <span className="italic text-blue-600">
+          <span className="italic text-cyan-600">
             We&apos;ll map the way out.
           </span>
         </h2>
@@ -16,13 +16,13 @@ export default function ProductCta() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="#book-a-demo"
+            href="/contact?intent=demo"
             className="rounded-full bg-dark-blue px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#152a45]"
           >
             Book a demo
           </a>
           <a
-            href="#talk-to-sales"
+            href="/contact?intent=sales"
             className="rounded-full border border-slate-300 px-7 py-3.5 text-base font-semibold text-dark-blue transition-colors hover:bg-black/[0.03]"
           >
             Talk to sales

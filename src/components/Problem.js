@@ -76,7 +76,7 @@ function RingGraphic() {
 
 export default function Problem() {
   return (
-    <section className="relative overflow-hidden bg-dark-blue text-primary-cream pt-48">
+    <section className="relative overflow-hidden bg-dark-blue text-primary-cream pt-20 sm:pt-48">
       <RingGraphic />
 
       <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">

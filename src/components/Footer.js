@@ -4,7 +4,7 @@ const PRODUCT_LINKS = [
   { label: "The problem", href: "#the-problem" },
   { label: "How it works", href: "#how-it-works" },
   { label: "Key benefits", href: "#key-benefits" },
-  { label: "Book a demo", href: "#book-a-demo" },
+  { label: "Book a demo", href: "/contact?intent=demo" },
 ];
 
 const COMPANY_LINKS = [

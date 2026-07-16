@@ -56,7 +56,7 @@ export default function Navbar({activePage = "home"}) {
             Sign in
           </a>
           <a
-            href="#book-a-demo"
+            href="/contact?intent=demo"
             className="rounded-full bg-cyan-600 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500 "
           >
             Book a Demo
@@ -123,7 +123,7 @@ export default function Navbar({activePage = "home"}) {
               Sign in
             </a>
             <a
-              href="#book-a-demo"
+              href="/contact?intent=demo"
               onClick={() => setOpen(false)}
               className="rounded-full bg-cyan-600 px-5 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-cyan-500"
             >

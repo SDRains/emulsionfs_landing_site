@@ -31,7 +31,7 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="#book-a-demo"
+            href="/contact?intent=demo"
             className="rounded-full bg-[#0b1a2e] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#152a45]"
           >
             Book a demo

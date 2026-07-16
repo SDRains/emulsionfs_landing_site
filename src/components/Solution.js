@@ -2,6 +2,8 @@
 // the container keeps this aspect ratio and the connector <svg> uses the same
 // viewBox with preserveAspectRatio="none", so line endpoints align with the
 // absolutely-positioned cards at any rendered size.
+import {Building2Icon, FileDigitIcon} from "lucide-react";
+
 const W = 1400;
 const H = 620;
 const L_CARD_W = 210;
@@ -17,11 +19,11 @@ const NODE_RIGHT_X = NODE_CX + NODE_W / 2;
 const R_CARD_LEFT_X = W - R_CARD_W;
 
 const SOURCES = [
-  { label: "JD Edwards", cy: 60 },
-  { label: "Sage Intacct", cy: 185 },
-  { label: "QuickBooks", cy: 310 },
-  { label: "NetSuite", cy: 435 },
-  { label: "Legacy GL", cy: 560 },
+  { label: "JD Edwards", cy: 60, imageUrl: '/jde-logo.png', imageCustomHeight: 'h-14', sourceLink: 'https://www.oracle.com/applications/jd-edwards-enterpriseone/' },
+  { label: "Sage Intacct", cy: 185, imageUrl: '/sage-logo.svg', imageCustomHeight: 'h-8', sourceLink: 'https://www.sage.com/en-us/sage-business-cloud/intacct/' },
+  { label: "QuickBooks", cy: 310, imageUrl: '/qb-logo.png', imageCustomHeight: 'h-7', sourceLink: 'https://quickbooks.intuit.com' },
+  { label: "NetSuite", cy: 435, imageUrl: '/netsuite-logo.png', imageCustomHeight: 'h-8', sourceLink: 'https://www.netsuite.com/portal/home.shtml' },
+  { label: "Legacy GL", cy: 560, imageUrl: '', imageCustomHeight: '', sourceLink: '' },
 ];
 
 const OUTCOMES = [
@@ -45,21 +47,30 @@ function NodeCard({ className = "" }) {
   );
 }
 
-function sourceInner(label) {
+const SourceInner = ({textLabel, imageUrl, imageCustomHeight = "h-8"}) => {
   return (
-    <>
-      <span className="h-4 w-4 shrink-0 rounded-[4px] bg-slate-200" />
-      <span className="font-mono text-sm text-slate-600">{label}</span>
-    </>
+    <div className='w-full flex justify-center'>
+        {
+            textLabel === "Legacy GL" ? (
+                <div className='flex items-center space-x-2 text-dark-blue'>
+                    <FileDigitIcon className='size-6' />
+                    <p>{textLabel}</p>
+                </div>
+            ) : (
+                <img src={imageUrl} className={`${imageCustomHeight} w-fit object-cover`} alt={textLabel} />
+            )
+        }
+      {/*<span className="font-mono text-sm text-slate-600">{textLabel}</span>*/}
+    </div>
   );
 }
 
-function outcomeInner(title, sub) {
+const OutcomeInner = ({title, sub}) => {
   return (
-    <>
-      <span className="text-base font-bold text-[#141414]">{title}</span>
-      <span className="mt-1 font-mono text-xs text-slate-400">{sub}</span>
-    </>
+    <div className='text-center sm:text-left'>
+      <p className="text-base font-bold text-[#141414]">{title}</p>
+      <p className="mt-1 font-mono text-xs text-slate-400">{sub}</p>
+    </div>
   );
 }
 
@@ -104,7 +115,11 @@ function DiagramFull() {
       {SOURCES.map((s) => (
         <div
           key={s.label}
-          className="absolute flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 shadow-[0_1px_2px_rgba(15,23,42,0.05)]"
+          className={`absolute flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 shadow-[0_1px_2px_rgba(15,23,42,0.05)]
+          ${s.label !== 'Legacy GL' && 'cursor-pointer hover:shadow-2xl hover:bg-neutral-50'}`}
+          onClick={() => {
+              window.open(s.sourceLink, '_blank');
+          }}
           style={{
             left: 0,
             width: pct(L_CARD_W, W),
@@ -112,7 +127,7 @@ function DiagramFull() {
             height: pct(L_CARD_H, H),
           }}
         >
-          {sourceInner(s.label)}
+          <SourceInner textLabel={s.label} imageUrl={s.imageUrl} imageCustomHeight={s.imageCustomHeight} />
         </div>
       ))}
 
@@ -120,7 +135,7 @@ function DiagramFull() {
       {OUTCOMES.map((o) => (
         <div
           key={o.title}
-          className="absolute flex flex-col justify-center rounded-xl border border-indigo-100 bg-[#eef1fb] px-4"
+          className="absolute flex flex-col justify-center rounded-xl border border-dark-blue/20 bg-dark-blue/5 px-4"
           style={{
             left: pct(R_CARD_LEFT_X, W),
             width: pct(R_CARD_W, W),
@@ -128,7 +143,7 @@ function DiagramFull() {
             height: pct(R_CARD_H, H),
           }}
         >
-          {outcomeInner(o.title, o.sub)}
+            <OutcomeInner title={o.title} sub={o.sub} />
         </div>
       ))}
 
@@ -157,7 +172,7 @@ function DiagramStacked() {
             key={s.label}
             className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-[0_1px_2px_rgba(15,23,42,0.05)]"
           >
-            {sourceInner(s.label)}
+            <SourceInner textLabel={s.label} imageUrl={s.imageUrl} imageCustomHeight={s.imageCustomHeight} />
           </div>
         ))}
       </div>
@@ -170,9 +185,9 @@ function DiagramStacked() {
         {OUTCOMES.map((o) => (
           <div
             key={o.title}
-            className="flex flex-col rounded-xl border border-indigo-100 bg-[#eef1fb] px-4 py-4"
+            className="flex flex-col rounded-xl border border-dark-blue/20 bg-dark-blue/5 px-4 py-4"
           >
-            {outcomeInner(o.title, o.sub)}
+            <OutcomeInner title={o.title} sub={o.sub} />
           </div>
         ))}
       </div>

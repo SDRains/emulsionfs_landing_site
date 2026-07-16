@@ -47,13 +47,13 @@ export default function FinalCta() {
 
           <div className="relative mt-12 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#book-a-demo"
+              href="/contact?intent=demo"
               className="rounded-lg bg-cyan-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-cyan-500"
             >
               Book a demo
             </a>
             <a
-              href="#talk-to-sales"
+              href="/contact?intent=sales"
               className="rounded-lg border border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/5"
             >
               Talk to sales

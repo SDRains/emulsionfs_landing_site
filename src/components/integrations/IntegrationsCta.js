@@ -15,13 +15,13 @@ export default function IntegrationsCta() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="#book-a-demo"
+            href="/contact?intent=demo"
             className="rounded-full bg-dark-blue px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#152a45]"
           >
             Book a demo
           </a>
           <a
-            href="#talk-to-sales"
+            href="/contact?intent=sales"
             className="rounded-full border border-slate-300 px-7 py-3.5 text-base font-semibold text-dark-blue transition-colors hover:bg-black/[0.03]"
           >
             Talk to sales
