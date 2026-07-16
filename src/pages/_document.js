@@ -4,9 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" href="/icon_dark.png" />
-        <link rel="apple-touch-icon" href="/icon_dark.png" />
+          <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+          <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+          <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+          <link rel="manifest" href="/favicon/site.webmanifest" />
         <meta name="theme-color" content="#0b1a2e" />
       </Head>
       <body className="antialiased">
