@@ -64,8 +64,8 @@ export default function IntegrationsPlatforms() {
           ))}
 
           {/* Custom-connector CTA card */}
-          <div className="rounded-xl border-2 border-dashed border-cyan-300 p-5">
-            <h3 className="text-base font-bold text-cyan-600">Something else?</h3>
+          <div className="rounded-xl border-2 border-dashed border-dark-blue/20 p-5">
+            <h3 className="text-base font-bold text-black">Something else?</h3>
             <p className="mt-2 text-sm text-slate-500">
               Custom connectors built during onboarding — spreadsheets included.
             </p>
