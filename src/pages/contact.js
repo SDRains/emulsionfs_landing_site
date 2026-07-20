@@ -3,8 +3,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
+import {analytics} from "@/lib/analytics";
+import {useEffect} from "react";
 
 export default function Contact() {
+    useEffect(() => {
+        analytics.page()
+    }, [])
+
     return (
         <div className="min-h-screen bg-primary-cream text-white">
             <Seo

@@ -7,8 +7,14 @@ import ProductProcess from "@/components/product/ProductProcess";
 import ProductRepository from "@/components/product/ProductRepository";
 import ProductFeatures from "@/components/product/ProductFeatures";
 import ProductCta from "@/components/product/ProductCta";
+import {analytics} from "@/lib/analytics";
+import {useEffect} from "react";
 
 export default function Product() {
+    useEffect(() => {
+        analytics.page()
+    }, [])
+
     return (
         <div className="min-h-screen bg-primary-cream text-white">
             <Seo

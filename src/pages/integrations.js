@@ -7,8 +7,14 @@ import IntegrationsIngestion from "@/components/integrations/IntegrationsIngesti
 import IntegrationsReports from "@/components/integrations/IntegrationsReports";
 import IntegrationsAI from "@/components/integrations/IntegrationsAI";
 import IntegrationsCta from "@/components/integrations/IntegrationsCta";
+import {analytics} from "@/lib/analytics";
+import {useEffect} from "react";
 
 export default function Integrations() {
+    useEffect(() => {
+        analytics.page()
+    }, [])
+
     return (
         <div className="min-h-screen bg-primary-cream text-white">
             <Seo

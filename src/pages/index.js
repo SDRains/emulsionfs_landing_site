@@ -4,14 +4,19 @@ import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import HowItWorks from "@/components/HowItWorks";
-import Benefits from "@/components/Benefits";
 import Audience from "@/components/Audience";
 import CaseStudy from "@/components/CaseStudy";
 import WhyNow from "@/components/WhyNow";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
+import {analytics} from "@/lib/analytics";
+import {useEffect} from "react";
 
 export default function Home() {
+    useEffect(() => {
+        analytics.page()
+    }, [])
+
   return (
     <div className="min-h-screen bg-primary-cream text-white">
       <Seo

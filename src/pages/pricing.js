@@ -4,8 +4,14 @@ import Footer from "@/components/Footer";
 import PricingHero from "@/components/pricing/PricingHero";
 import PricingServices from "@/components/pricing/PricingServices";
 import PricingSteps from "@/components/pricing/PricingSteps";
+import {analytics} from "@/lib/analytics";
+import {useEffect} from "react";
 
 export default function Pricing() {
+    useEffect(() => {
+        analytics.page()
+    }, [])
+
     return (
         <div className="min-h-screen bg-primary-cream text-white">
             <Seo
