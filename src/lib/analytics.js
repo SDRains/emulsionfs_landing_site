@@ -5,7 +5,7 @@ export const analytics = Analytics({
     app: 'emulsionfs_landing_page',
     plugins: [
         googleAnalytics({
-            measurementIds: [process.env.PUBLIC_NEXT_GA_TAG]
+            measurementIds: [process.env.NEXT_PUBLIC_GA_TAG]
         })
     ]
 })
