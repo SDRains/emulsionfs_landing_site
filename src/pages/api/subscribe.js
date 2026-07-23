@@ -31,7 +31,7 @@ export default async function handler(req, res) {
             PHONE: phone || "",
             COMPANY: company,
             ENTITIES: entities || "",
-            SYSTEM: systems || "",
+            SYSTEMS: systems || "",
             INTENT: intent || "",
             MESSAGE: message || "",
         },
