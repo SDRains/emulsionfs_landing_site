@@ -24,7 +24,7 @@ const SEGMENTS = [
 export default function Audience() {
   return (
     <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div className="mx-auto max-w-screen-2xl px-6 py-16 lg:px-10">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-600">*/}
         {/*  WHO IT&apos;S FOR*/}
         {/*</p>*/}

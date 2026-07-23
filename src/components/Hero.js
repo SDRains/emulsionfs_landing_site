@@ -1,6 +1,6 @@
 import DashboardMockup from "@/components/DashboardMockup";
 
-const TRUST = ["SOC 2 Type II", "Dedicated Migration Expert", "30-min Complimentary Audit"];
+const TRUST = ["Secure & Encrypted", "Dedicated Connection Expert", "Free 30-minute consultation"];
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
             href="/contact?intent=demo"
             className="rounded-full bg-[#0b1a2e] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#152a45]"
           >
-            Book a demo
+            Book a Demo
           </a>
           <a
             href="#how-it-works"

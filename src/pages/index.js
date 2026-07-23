@@ -4,9 +4,12 @@ import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import HowItWorks from "@/components/HowItWorks";
+import HostingOptions from "@/components/HostingOptions";
 import Audience from "@/components/Audience";
 import CaseStudy from "@/components/CaseStudy";
 import WhyNow from "@/components/WhyNow";
+import WhoItsFor from "@/components/home/WhoItsFor";
+import PrivateIntelligence from "@/components/PrivateIntelligence";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import {analytics} from "@/lib/analytics";
@@ -30,10 +33,13 @@ export default function Home() {
         <Problem />
         <Solution />
         <HowItWorks />
+        <HostingOptions />
         {/*<Benefits />*/}
-        <Audience />
+        {/*<Audience />*/}
+        <WhoItsFor />
         <CaseStudy />
-        <WhyNow />
+        {/*<WhyNow />*/}
+        <PrivateIntelligence />
         <FinalCta />
       </main>
       <Footer />

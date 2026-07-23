@@ -32,7 +32,7 @@ function ProblemCard({ icon, title, body }) {
   const IconComponent = icon;
 
   return (
-    <div className="rounded-2xl border border-black/[0.06] bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+    <div className="rounded-2xl border border-black/[0.06] bg-primary-cream p-7">
       <IconComponent className='size-6 text-cyan-600' />
       <h3 className="mt-6 text-lg font-bold text-[#141414]">{title}</h3>
       <p className="mt-3 text-base leading-7 text-slate-500">{body}</p>
@@ -79,7 +79,7 @@ export default function Problem() {
     <section className="relative overflow-hidden bg-dark-blue text-primary-cream pt-20 sm:pt-48">
       <RingGraphic />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">
+      <div className="relative mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-700">*/}
         {/*  THE PROBLEM*/}
         {/*</p>*/}

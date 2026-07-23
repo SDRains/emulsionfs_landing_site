@@ -91,7 +91,7 @@ export default function HowItWorks() {
         {/*<p className="text-center font-mono text-sm font-semibold tracking-[0.2em] text-cyan-600">*/}
         {/*  HOW IT WORKS*/}
         {/*</p>*/}
-        <h2 className="mx-auto max-w-3xl text-center text-5xl leading-tight text-[#0f2038] sm:text-5xl lg:text-6xl font-extrabold">
+      <h2 className="mt-6 max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-center">
           Two ways to connect,
           <br />
           <span className="font-serif italic text-cyan-600">one place to work.</span>

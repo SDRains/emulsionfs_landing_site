@@ -198,7 +198,7 @@ function DiagramStacked() {
 export default function Solution() {
   return (
     <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+      <div className="mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-600">*/}
         {/*  THE SOLUTION*/}
         {/*</p>*/}
@@ -208,8 +208,8 @@ export default function Solution() {
         <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-slate-500 text-center">
           Connect your platforms once and Emulsion becomes the single place to
           search, report, and retain your financial data no matter which
-          system it originally lived in. Live data stays live. Historical data
-          stays accessible forever. And you finally see it all together.
+          system it originated from. See all of your live and historical data,
+          all together.
         </p>
 
         <div className="mt-20 hidden lg:block">
