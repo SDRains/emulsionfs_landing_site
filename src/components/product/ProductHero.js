@@ -29,7 +29,7 @@ export default function ProductHero() {
             href="/contact?intent=demo"
             className="rounded-full bg-cyan-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500"
           >
-            Book a demo
+            Book a Demo
           </a>
           <a
             href="/contact?intent=sales"

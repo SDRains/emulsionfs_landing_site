@@ -7,7 +7,7 @@ export default function IntegrationsHero() {
           "radial-gradient(50% 45% at 50% 0%, rgba(120,127,150,0.12), transparent 70%), #f7f4ec",
       }}
     >
-      <div className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
         <h1 className="font-serif text-5xl font-semibold leading-[1.05] text-dark-blue sm:text-6xl lg:text-7xl">
           Data in from every system.
           <br />
