@@ -9,6 +9,13 @@
   --color-primary-cream: #f7f4ec;
   --color-dark-blue: #0f2038;
 
+  /* PRIMARY GREEN VARIATIONS */
+  --color-primary-green-500: #509665;
+  --color-primary-green-600: #468358; /* THIS IS THE DEFAULT COLOR */
+  --color-primary-green-700: #356341;
+
+  --color-dark-background: #0b1a2e;
+
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
   Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
@@ -30,5 +37,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Right-to-left logo marquee. The track holds two identical copies of the
+   logos, so translating it by -50% lands exactly on the start of the second
+   copy — producing a seamless, gapless loop. */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-rtl 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 

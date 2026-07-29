@@ -9,16 +9,16 @@ export default function CaseStudy() {
             <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
               {/* Left: headline stat */}
               <div className='space-y-8 sm:space-x-6 text-center sm:text-left'>
-                <p className="font-mono text-sm font-semibold tracking-[0.2em] text-cyan-400">
+                <p className="font-mono text-sm font-semibold tracking-[0.2em] text-primary-green-500">
                   CASE STUDY
                 </p>
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 items-center'>
-                  <p className="text-white text-7xl text-center">Weeks</p>
-                  <div className='flex justify-center'>
+                <div className='grid grid-cols-1 lg:grid-cols-5 items-center'>
+                  <p className="text-white text-8xl text-center lg:col-span-2">Weeks</p>
+                  <div className='flex justify-center lg:col-span-1'>
                     <ArrowRightIcon className='size-12 text-slate-400 hidden sm:inline' />
                     <ArrowDownIcon className='size-12 text-slate-400 inline sm:hidden' />
                   </div>
-                  <p className="text-cyan-600 text-7xl text-center lg:text-left">Hours</p>
+                  <p className="text-primary-green-500 text-8xl text-center lg:text-left lg:col-span-2">Hours</p>
                 </div>
                 {/*<p className="font-mono text-sm tracking-[0.2em] text-slate-500">*/}
                 {/*  REPORT GENERATION TIME*/}

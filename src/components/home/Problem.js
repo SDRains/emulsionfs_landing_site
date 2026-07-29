@@ -76,7 +76,7 @@ function RingGraphic() {
 
 export default function Problem() {
   return (
-    <section className="relative overflow-hidden bg-dark-blue text-primary-cream pt-20 sm:pt-48">
+    <section className="relative overflow-hidden bg-dark-background text-primary-cream">
       <RingGraphic />
 
       <div className="relative mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
@@ -98,7 +98,7 @@ export default function Problem() {
             finished.
           </p>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:-mt-20">
             <div className="flex flex-col gap-6">
               {LEFT_CARDS.map((c) => (
                 <ProblemCard key={c.title} {...c} />

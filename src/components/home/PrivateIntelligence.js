@@ -21,15 +21,15 @@ const FEATURES = [
 export default function PrivateIntelligence() {
   return (
     <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-screen-2xl px-6 py-20 lg:px-10">
         <div className="text-center">
           <span className="inline-block rounded-full border border-slate-300 px-3 py-1 font-mono text-[11px] font-semibold tracking-[0.2em] text-slate-500">
             OPTIONAL
           </span>
 
-          <h2 className="text-center mt-6 max-w-7xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
+          <h2 className="text-center mt-6 max-w-5xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
             Put your financial data to work{" "}
-            <span className="italic font-serif text-cyan-600">
+            <span className="italic font-serif text-primary-green-600">
               without it ever leaving your control.
             </span>
           </h2>

@@ -31,10 +31,10 @@ export default function HostingOptions() {
         {/*  ONE PLATFORM, YOUR CHOICE OF ENVIRONMENT*/}
         {/*</p>*/}
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           <div>
             <h2 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-              One platform, <span className="font-serif italic text-cyan-600 pl-2">your choice of environment.</span>
+              One platform, <span className="font-serif italic text-primary-green-600 pl-2">your choice of environment.</span>
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-500">
@@ -53,10 +53,10 @@ export default function HostingOptions() {
 
                 </th>
                 <th scope="col" className="px-4 py-3.5 text-left text-base font-semibold text-gray-900">
-                  <p className='flex items-center'>Emulsion-hosted <CloudIcon className="w-5 h-5 ml-2 text-cyan-600" /></p>
+                  <p className='flex items-center'>Emulsion-hosted <CloudIcon className="w-5 h-5 ml-2 text-primary-green-600" /></p>
                 </th>
                 <th scope="col" className="px-4 py-3.5 text-left text-base font-semibold text-gray-900">
-                  <p className='flex items-center'>Your Environment <ServerIcon className='w-5 h-5 ml-2 text-cyan-600' /></p>
+                  <p className='flex items-center'>Your Environment <ServerIcon className='w-5 h-5 ml-2 text-primary-green-600' /></p>
                 </th>
               </tr>
               </thead>

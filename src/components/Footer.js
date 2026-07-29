@@ -1,17 +1,97 @@
+const COLUMNS = [
+  {
+    heading: "PLATFORM",
+    links: [
+      { label: "Overview", href: "/product" },
+      { label: "Live connections", href: "/integrations" },
+      { label: "Full extraction", href: "/integrations" },
+      { label: "Search & reporting", href: "/product" },
+      { label: "Historical archive", href: "/product" },
+    ],
+  },
+  {
+    heading: "SOLUTIONS",
+    links: [
+      { label: "Private equity", href: "#" },
+      { label: "Utility roll-ups", href: "#" },
+      { label: "Holding companies", href: "#" },
+      { label: "Multi-entity finance", href: "#" },
+    ],
+  },
+  {
+    heading: "COMPANY",
+    links: [
+      { label: "About", href: "#" },
+      { label: "Security", href: "#" },
+      { label: "Contact", href: "/contact" },
+      { label: "Book a demo", href: "/contact?intent=demo" },
+    ],
+  },
+];
+
+const LEGAL = [
+  { label: "Privacy", href: "#" },
+  { label: "Security", href: "#" },
+  { label: "Terms", href: "#" },
+];
+
+function FooterColumn({ heading, links }) {
+  return (
+    <div>
+      <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#a99d82]">
+        {heading}
+      </h3>
+      <ul className="mt-6 space-y-3.5">
+        {links.map((l) => (
+          <li key={l.label}>
+            <a
+              href={l.href}
+              className="text-base text-slate-300 transition-colors hover:text-white"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
-      <footer className='bg-primary-cream w-full'>
-          <div className="px-4 text-center sm:text-left max-w-7xl mx-auto flex flex-col gap-4 border-t border-black/10 font-serif text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between py-6">
-             <p>© 2026 Emulsion Financial Solutions</p>
-             {/*<p className="flex items-center text-cyan-600">*/}
-             {/*  ALL SYSTEMS, ONE LEDGER*/}
-             {/*</p>*/}
-              <div className='flex items-center sm:flex-row gap-6 mx-auto sm:mx-0'>
-                  <p>Privacy</p>
-                  <p>Security</p>
-                  <p>Terms</p>
-              </div>
+    <footer className="bg-dark-background text-white">
+      <div className="mx-auto max-w-screen-2xl px-6 lg:px-10">
+        {/* Main */}
+        <div className="grid gap-12 border-t border-white/10 pb-14 pt-16 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+          {/* Brand */}
+          <div>
+            <p className="mt-6 max-w-xs text-base leading-7 text-slate-400">
+              One searchable, permanent source of financial truth for
+              organizations that grew through acquisition.
+            </p>
           </div>
-      </footer>
+
+          {COLUMNS.map((c) => (
+            <FooterColumn key={c.heading} {...c} />
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-4 border-t border-white/10 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Emulsion Financial Solutions</p>
+          <div className="flex items-center gap-8">
+            {LEGAL.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-slate-400 transition-colors hover:text-white"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

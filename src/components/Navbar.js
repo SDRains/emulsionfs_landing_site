@@ -28,7 +28,7 @@ export default function Navbar({activePage = "home"}) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-primary-cream/95 backdrop-blur supports-[backdrop-filter]:bg-primary-cream/80">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/95 backdrop-blur-xs supports-[backdrop-filter]:bg-primary-cream/80">
       <nav className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-6 lg:px-10">
         <Logo />
 
@@ -40,24 +40,24 @@ export default function Navbar({activePage = "home"}) {
                 <li key={link.href}>
                   <a
                       href={link.href}
-                      className={`text-base ${activePage === link.id ? 'text-cyan-700 font-semibold' : 'text-slate-700'} transition-colors hover:text-cyan-700`}
+                      className={`text-base ${activePage === link.id ? 'text-primary-green-700 font-semibold' : 'text-slate-700'} transition-colors hover:text-primary-green-700`}
                   >
                     {link.label}
                   </a>
-                  <div className={`${activePage === link.id ? 'bg-cyan-600' : 'bg-transparent'} h-0.5 w-full`} />
+                  <div className={`${activePage === link.id ? 'bg-primary-green-600' : 'bg-transparent'} h-0.5 w-full`} />
                 </li>
             ))}
           </ul>
 
           <a
             href="#sign-in"
-            className="text-base text-slate-700 font-semibold transition-colors hover:text-cyan-700 font-serif"
+            className="text-base text-slate-700 font-semibold transition-colors hover:text-primary-green-700 font-serif"
           >
             Sign in
           </a>
           <a
             href="/contact?intent=demo"
-            className="rounded-full bg-cyan-600 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500 "
+            className="rounded-full bg-primary-green-600 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 "
           >
             Book a Demo
           </a>
@@ -125,7 +125,7 @@ export default function Navbar({activePage = "home"}) {
             <a
               href="/contact?intent=demo"
               onClick={() => setOpen(false)}
-              className="rounded-full bg-cyan-600 px-5 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-cyan-500"
+              className="rounded-full bg-primary-green-600 px-5 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-primary-green-500"
             >
               Book a demo
             </a>

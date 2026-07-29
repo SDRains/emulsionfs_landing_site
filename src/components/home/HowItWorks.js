@@ -45,7 +45,7 @@ function CheckIcon({ className }) {
 function MethodCard({ badge, title, body }) {
   return (
     <div className="rounded-2xl border border-black/[0.06] bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
-      <span className="inline-block rounded-md bg-cyan-50 px-2.5 py-1 font-mono text-xs font-semibold tracking-wider text-cyan-600">
+      <span className="inline-block rounded-md bg-green-50 px-2.5 py-1 font-mono text-xs font-semibold tracking-wider text-primary-green-600">
         {badge}
       </span>
       <h3 className="mt-5 text-xl font-bold text-[#141414]">{title}</h3>
@@ -67,7 +67,7 @@ function Connector() {
 function NodeCard() {
   return (
     <div className="rounded-2xl bg-[#0f2038] p-8 text-white shadow-[0_25px_50px_-15px_rgba(15,23,42,0.4)]">
-      <img src='/emulsion_logo_dark.png' className='w-32 h-auto object-cover' />
+      <img src='/emulsion_logo_dark_no_footer.png' className='w-32 h-auto object-cover mb-6' />
       <h3 className="text-2xl font-bold">One place to work.</h3>
       <p className="mt-3 text-base leading-7 text-slate-400">
         Live and historical data, side by side in Emulsion.
@@ -75,7 +75,7 @@ function NodeCard() {
       <ul className="mt-6 space-y-3">
         {OUTCOMES.map((o) => (
           <li key={o} className="flex items-center gap-3 text-slate-200">
-            <CheckIcon className="h-4 w-4 shrink-0 text-cyan-400" />
+            <CheckIcon className="h-4 w-4 shrink-0 text-primary-green-500" />
             <span>{o}</span>
           </li>
         ))}
@@ -87,14 +87,11 @@ function NodeCard() {
 export default function HowItWorks() {
   return (
     <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 pb-28 pt-8 lg:px-10">
-        {/*<p className="text-center font-mono text-sm font-semibold tracking-[0.2em] text-cyan-600">*/}
-        {/*  HOW IT WORKS*/}
-        {/*</p>*/}
-      <h2 className="mt-6 max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-center">
+      <div className="mx-auto max-w-screen-2xl px-6 pb-28 lg:px-10">
+        <h2 className="mt-6 max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-center">
           Two ways to connect,
           <br />
-          <span className="font-serif italic text-cyan-600">one place to work.</span>
+          <span className="font-serif italic text-primary-green-600">one place to work.</span>
         </h2>
 
         <div className="mt-12 grid items-center gap-8 lg:mt-16 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">

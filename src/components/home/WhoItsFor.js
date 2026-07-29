@@ -44,27 +44,27 @@ export default function WhoItsFor() {
     return (
         <section className="bg-primary-cream text-[#141414]">
             <div className="mx-auto max-w-screen-2xl px-6 py-20 lg:px-10 space-y-8 lg:space-y-16">
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-                    <h2 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-                        Built for organizations that grew through acquisition.
-                    </h2>
-
-                    <div className="grid grid-cols-2 gap-0">
+                <div className='grid grid-cols-1 lg:grid-cols-5 gap-8'>
+                    <div className="grid grid-cols-2 gap-0 col-span-3">
                         {SEGMENTS.map((s, i) => (
                             <div
                                 key={s.number}
-                                className={`p-4 border-neutral-200 ${
+                                className={`p-4 border-neutral-200 space-y-2 hover:bg-white/50 cursor-pointer ${
                                     i % 2 === 0 ? 'border-r' : ''
                                 } ${i < 2 ? 'border-b' : ''}`}
                             >
-            <span className="font-mono text-sm text-cyan-600">
+            <span className="font-mono text-xs text-black/50">
                 {s.number}
             </span>
-                                <h3 className="text-base font-bold text-[#141414]">{s.title}</h3>
-                                <p className="text-sm text-slate-500">{s.body}</p>
+                                <h3 className="text-base font-bold text-primary-green-600">{s.title}</h3>
+                                <p className="text-sm text-black/80">{s.body}</p>
                             </div>
                         ))}
                     </div>
+
+                    <h2 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl col-span-2 text-left">
+                        Built for organizations that grew through acquisition.
+                    </h2>
                 </div>
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-neutral-200 pt-6'>

@@ -37,10 +37,10 @@ const pct = (value, total) => `${(value / total) * 100}%`;
 function NodeCard({ className = "" }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-blue-500 bg-[#0f2038] shadow-[0_0_50px_-10px_rgba(59,130,246,0.7)] ${className}`}
+      className={`flex flex-col items-center justify-center gap-1.5 rounded-2xl bg-primary-green-700 shadow-2xl shadow-primary-green-700/60 ${className}`}
     >
-        <img src='/emulsion_logo_dark.png' className='w-2/3 h-auto object-cover' alt='Emulsion' />
-      <span className="font-mono text-[9px] tracking-[0.18em] text-blue-300">
+        <img src='/emulsion_logo_dark_no_footer.png' className='w-2/3 h-auto object-cover' alt='Emulsion' />
+      <span className="font-mono text-[9px] tracking-[0.18em] text-white/75">
         ONE SOURCE OF TRUTH
       </span>
     </div>
@@ -212,7 +212,7 @@ export default function Solution() {
           all together.
         </p>
 
-        <div className="mt-20 hidden lg:block">
+        <div className="-mt-8 hidden lg:block">
           <DiagramFull />
         </div>
         <div className="mt-16 lg:hidden">
