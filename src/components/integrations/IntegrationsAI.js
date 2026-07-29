@@ -22,7 +22,7 @@ export default function IntegrationsAI() {
         <h2 className="text-center font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl lg:text-6xl">
           Ask your data a question.
           <br />
-          <span className="italic text-cyan-600">In plain English.</span>
+          <span className="italic text-primary-green-600">In plain English.</span>
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-slate-500">

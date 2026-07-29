@@ -11,7 +11,7 @@ export default function IntegrationsHero() {
         <h1 className="font-serif text-5xl font-semibold leading-[1.05] text-dark-blue sm:text-6xl lg:text-7xl">
           Data in from every system.
           <br />
-          <span className="italic text-cyan-600">
+          <span className="italic text-primary-green-600">
             Reports out to everyone who asks.
           </span>
         </h1>

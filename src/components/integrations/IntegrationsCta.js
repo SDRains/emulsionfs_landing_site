@@ -5,7 +5,7 @@ export default function IntegrationsCta() {
         <h2 className="font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl lg:text-6xl">
           Every system in.
           <br />
-          <span className="italic text-cyan-600">Every report out.</span>
+          <span className="italic text-primary-green-600">Every report out.</span>
         </h2>
 
         <p className="mx-auto mt-6 max-w-xl text-lg text-slate-500">
