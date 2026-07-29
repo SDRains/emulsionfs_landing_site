@@ -92,7 +92,7 @@ function SelectField({ label, options }) {
 function ScopingForm() {
   return (
     <div className="rounded-2xl bg-dark-blue p-8 text-white shadow-[0_25px_50px_-15px_rgba(15,23,42,0.4)]">
-      <p className="font-mono text-xs font-semibold tracking-[0.2em] text-cyan-400">
+      <p className="font-mono text-xs font-semibold tracking-[0.2em] text-primary-green-500">
         START THE CONVERSATION
       </p>
       <h3 className="mt-3 font-serif text-2xl font-bold">
@@ -157,7 +157,7 @@ function ScopingForm() {
 
         <button
           type="submit"
-          className="w-full rounded-full bg-cyan-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500 cursor-pointer"
+          className="w-full rounded-full bg-primary-green-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 cursor-pointer"
         >
           Request a scoping call
         </button>
@@ -196,12 +196,12 @@ export default function PricingServices() {
 
             <div className="mt-12 flex items-start gap-4 rounded-xl bg-primary-cream p-5">
               <p className="text-base leading-7 text-slate-600">
-                <span className="font-bold text-dark-blue">
+                <span className="font-bold text-dark-background">
                   Fixed-fee proposals.
                 </span>{" "}
                 After a scoping call, you get one document: what we&apos;ll
-                connect, what we&apos;ll migrate, what it costs, and when
-                it&apos;s done.
+                connect, what we&apos;ll migrate, what it costs and a full completion
+                timeline.
               </p>
             </div>
           </div>

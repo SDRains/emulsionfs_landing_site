@@ -30,7 +30,7 @@ function StepCard({ badge, title, body, dark }) {
     >
       <span
         className={`inline-block rounded-full px-3 py-1 font-mono text-xs font-semibold tracking-wider ${
-          dark ? "bg-white/10 text-cyan-400" : "bg-cyan-50 text-cyan-700"
+          dark ? "bg-white/10 text-primary-green-500 brightness-125" : "bg-primary-green-600/10 text-primary-green-600"
         }`}
       >
         {badge}
@@ -55,7 +55,7 @@ export default function PricingSteps() {
   return (
     <section className="bg-primary-cream text-[#141414]">
       <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
-        <h2 className="text-center font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl">
+        <h2 className="text-center font-serif text-4xl font-semibold leading-tight text-dark-background sm:text-5xl">
           Three steps to a number you can trust.
         </h2>
 
@@ -64,7 +64,7 @@ export default function PricingSteps() {
             <Fragment key={s.badge}>
               <StepCard {...s} />
               {i < STEPS.length - 1 && (
-                <span className="hidden shrink-0 self-center text-2xl text-cyan-500 lg:block">
+                <span className="hidden shrink-0 self-center text-2xl text-primary-green-500 lg:block">
                   &rarr;
                 </span>
               )}

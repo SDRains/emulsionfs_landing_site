@@ -15,7 +15,7 @@ export default function PricingHero() {
         <h1 className="font-serif text-5xl font-semibold leading-[1.05] text-dark-blue sm:text-6xl lg:text-7xl">
           Priced to your environment,
           <br />
-          <span className="italic text-cyan-600">not a pricing table.</span>
+          <span className="italic text-primary-green-600">not a pricing table.</span>
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-500">
