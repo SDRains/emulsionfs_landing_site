@@ -28,8 +28,8 @@ export default function Navbar({activePage = "home"}) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/95 backdrop-blur-xs supports-[backdrop-filter]:bg-primary-cream/80">
-      <nav className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-6 lg:px-10">
+    <header className="sticky top-0 z-50 border-b border-dark-background/20 bg-white/95 backdrop-blur-xs supports-[backdrop-filter]:bg-primary-cream/80">
+      <nav className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-6">
         <Logo />
 
         {/* Desktop actions */}

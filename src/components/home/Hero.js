@@ -18,7 +18,7 @@ export default function Hero() {
           "linear-gradient(120deg, #F5E4F3 0%, #E9DCEC 28%, #C8DBDE 54%, #BDCC9E 78%, #468358 100%)",
       }}
     >
-      <div className="mx-auto max-w-screen-2xl px-6 pt-16 pb-40 lg:px-10 lg:pt-24 lg:pb-40">
+      <div className="mx-auto max-w-screen-2xl px-6 pt-16 pb-40 lg:px-10 lg:pt-12 lg:pb-40">
         <div className="grid items-center gap-0 grid-cols-1 lg:grid-cols-7 lg:gap-0">
           {/* Copy */}
           <div className="lg:col-span-3">
