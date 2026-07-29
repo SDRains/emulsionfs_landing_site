@@ -33,7 +33,7 @@ function ProblemCard({ icon, title, body }) {
 
   return (
     <div className="rounded-2xl border border-black/[0.06] bg-primary-cream p-7">
-      <IconComponent className='size-6 text-cyan-600' />
+      <IconComponent className='size-6 text-primary-green-600' />
       <h3 className="mt-6 text-lg font-bold text-[#141414]">{title}</h3>
       <p className="mt-3 text-base leading-7 text-slate-500">{body}</p>
     </div>
@@ -43,7 +43,7 @@ function ProblemCard({ icon, title, body }) {
 function RingGraphic() {
   return (
     <svg
-      className="pointer-events-none absolute -right-40 -top-40 h-[820px] w-[820px] max-w-none text-cyan-600/20"
+      className="pointer-events-none absolute -right-40 -top-40 h-[820px] w-[820px] max-w-none text-primary-green-600/20"
       viewBox="0 0 820 820"
       fill="none"
       aria-hidden="true"

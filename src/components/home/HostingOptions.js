@@ -45,7 +45,7 @@ export default function HostingOptions() {
             </p>
           </div>
 
-          <div>
+          <div className='hidden sm:block'>
             <table className="min-w-full divide-y divide-gray-300">
               <thead>
               <tr className="divide-x divide-gray-200">

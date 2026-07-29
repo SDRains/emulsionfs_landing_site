@@ -18,7 +18,7 @@ export default function Hero() {
           "linear-gradient(120deg, #F5E4F3 0%, #E9DCEC 28%, #C8DBDE 54%, #BDCC9E 78%, #468358 100%)",
       }}
     >
-      <div className="mx-auto max-w-screen-2xl px-6 pt-16 pb-40 lg:px-10 lg:pt-24 lg:pb-52">
+      <div className="mx-auto max-w-screen-2xl px-6 pt-16 pb-40 lg:px-10 lg:pt-24 lg:pb-40">
         <div className="grid items-center gap-0 grid-cols-1 lg:grid-cols-7 lg:gap-0">
           {/* Copy */}
           <div className="lg:col-span-3">
@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
 
           {/* Product screenshot */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 mt-12">
             <div className="relative z-0">
               <DashboardMockup />
             </div>
@@ -65,7 +65,7 @@ export default function Hero() {
       {/* Trust band — dark translucent pill floating over the indigo base of the
           gradient, echoing the mockup's logo rail. */}
       <div className="relative z-10 mx-auto -mt-24 max-w-screen-2xl px-6 pb-16 lg:px-10">
-        <div className="rounded-3xl bg-[#171a3a]/45 px-6 py-6 backdrop-blur-md ring-1 ring-white/10 sm:px-10">
+        <div className=" bg-dark-background/35 px-6 py-6 backdrop-blur-md ring-1 ring-white/10 sm:px-10">
           <div className="flex flex-col items-center gap-6 md:flex-row md:gap-10">
             <p className="max-w-xs shrink-0 text-center font-serif text-lg leading-snug text-white/90 md:text-left">
               Finance teams unify the systems they&apos;ve inherited with
@@ -76,7 +76,7 @@ export default function Hero() {
                 images={LOGOS}
                 perView={LOGOS.length}
                 gap={36}
-                secondsPerImage={5}
+                secondsPerImage={8}
             />
           </div>
         </div>
