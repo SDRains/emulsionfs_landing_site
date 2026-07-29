@@ -23,14 +23,14 @@ const STEPS = [
 
 export default function ProductProcess() {
   return (
-    <section className="bg-dark-blue text-white">
+    <section className="bg-dark-background text-white">
       <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
         <h2 className="font-serif text-4xl font-semibold leading-tight sm:text-5xl">
           <span className="text-primary-cream">
             Not a login and a link to the docs.
           </span>
           <br />
-          <span className="italic text-cyan-600">
+          <span className="italic text-primary-green-600">
             A team that maps your business.
           </span>
         </h2>
@@ -52,7 +52,7 @@ export default function ProductProcess() {
                   i > 0 ? "md:border-l md:border-white/10" : ""
                 }`}
               >
-                <p className="font-mono text-xs font-semibold tracking-[0.2em] text-cyan-400">
+                <p className="font-mono text-xs font-semibold tracking-[0.2em] text-primary-green-500">
                   {s.week}
                 </p>
                 <h3 className="mt-5 font-serif text-2xl font-semibold text-primary-cream">

@@ -66,7 +66,7 @@ function ConnectorCard({ title, badge, body }) {
 export default function ProductConnectors() {
   return (
     <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
+      <div className="mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
           {/* Left: copy + legend */}
           <div>
@@ -102,7 +102,7 @@ export default function ProductConnectors() {
 
             {/* Custom-connector CTA card */}
             <div className="rounded-xl border-2 border-dashed border-dark-blue/20 p-6">
-              <h3 className="text-lg font-bold text-cyan-600">
+              <h3 className="text-lg font-bold text-primary-green-600">
                 Something else?
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-500">

@@ -12,34 +12,37 @@ export default function ProductHero() {
         {/*  PRODUCT*/}
         {/*</p>*/}
 
-        <h1 className="mt-8 max-w-4xl font-serif text-5xl font-semibold leading-[1.05] text-dark-blue sm:text-6xl lg:text-7xl">
+        <h1 className="mt-8 max-w-6xl mx-auto font-serif text-5xl font-semibold leading-[1.05] text-dark-background sm:text-6xl lg:text-7xl text-center">
           Every system you&apos;ve inherited,
           <br />
-          <span className="italic text-cyan-600">handled end to end.</span>
+          <span className="italic text-primary-green-600">handled end to end.</span>
         </h1>
 
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-500">
-          Emulsion isn&apos;t just software — it&apos;s the connections, the
-          migration, and the people who get you there. From the first discovery
-          call to the day you retire your last legacy subscription.
+        <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-slate-500 text-center">
+          Emulsion is more than just software - it&apos;s the connections, the
+          migration and the team who get you there. From the first discovery
+          call to the day you retire your last legacy subscription, we work to make the Emulsion platform
+          fit your organizational needs.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="/contact?intent=demo"
-            className="rounded-full bg-cyan-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500"
-          >
-            Book a Demo
-          </a>
-          <a
-            href="/contact?intent=sales"
-            className="group inline-flex items-center gap-2 rounded-full border border-slate-300 px-7 py-3.5 text-base font-semibold text-dark-blue transition-colors hover:bg-black/[0.03]"
-          >
-            Talk to a consultant
-            <span className="transition-transform group-hover:translate-x-1">
+        <div className='flex justify-center'>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+                href="/contact?intent=demo"
+                className="rounded-full bg-primary-green-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500"
+            >
+              Book a Demo
+            </a>
+            <a
+                href="/contact?intent=sales"
+                className="group inline-flex items-center gap-2 rounded-full border border-primary-green-700/40 px-7 py-3.5 text-base font-semibold text-primary-green-600 transition-colors hover:bg-black/[0.03]"
+            >
+              Talk to a consultant
+              <span className="transition-transform group-hover:translate-x-1">
               &rarr;
             </span>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </section>

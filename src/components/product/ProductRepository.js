@@ -3,7 +3,7 @@ import { MonitorIcon, CloudIcon, CheckIcon } from "lucide-react";
 const OPTIONS = [
   {
     icon: MonitorIcon,
-    title: "Local deployment",
+    title: "Local Deployment",
     body: "Your historical repository runs on your own infrastructure, behind your firewall. Full control, full auditability — Emulsion connects to it the same way it connects to everything else.",
     points: [
       "Runs in your data center or private cloud",
@@ -37,7 +37,7 @@ export default function ProductRepository() {
         <h2 className="mx-auto max-w-3xl text-center font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl">
           Off legacy systems.
           <br />
-          <span className="italic text-cyan-600">
+          <span className="italic text-primary-green-600">
             Into a repository you control.
           </span>
         </h2>
@@ -55,12 +55,14 @@ export default function ProductRepository() {
                 key={o.title}
                 className="rounded-2xl border border-black/[0.05] bg-white p-8 shadow-sm sm:p-10"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 ring-1 ring-blue-100">
-                  <Icon className="h-6 w-6 text-cyan-600" />
+                <div className='flex items-center space-x-4'>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-green-600/10 ring-1 ring-primary-green-600/40">
+                    <Icon className="h-6 w-6 text-primary-green-600" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-semibold text-dark-blue">
+                    {o.title}
+                  </h3>
                 </div>
-                <h3 className="mt-8 font-serif text-2xl font-semibold text-dark-blue">
-                  {o.title}
-                </h3>
                 <p className="mt-4 text-base leading-7 text-slate-500">
                   {o.body}
                 </p>
@@ -68,7 +70,7 @@ export default function ProductRepository() {
                   {o.points.map((p) => (
                     <li key={p} className="flex items-start gap-3">
                       <CheckIcon
-                        className="mt-0.5 h-4 w-4 shrink-0 text-cyan-600"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-green-600"
                         strokeWidth={3}
                       />
                       <span className="text-slate-600">{p}</span>

@@ -56,9 +56,9 @@ export default function ProductFeatures() {
             return (
               <div key={f.title} className="rounded-2xl bg-primary-cream p-8">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm">
-                  <Icon className="h-5 w-5 text-dark-blue" />
+                  <Icon className="h-5 w-5 text-primary-green-600" />
                 </div>
-                <h3 className="mt-12 text-lg font-bold text-dark-blue">
+                <h3 className="mt-4 text-lg font-bold text-dark-blue">
                   {f.title}
                 </h3>
                 <p className="mt-2 text-base leading-7 text-slate-500">
