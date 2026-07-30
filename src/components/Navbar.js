@@ -50,7 +50,7 @@ export default function Navbar({activePage = "home"}) {
           </ul>
 
           <a
-            href="#sign-in"
+            href="/login"
             className="text-base text-slate-700 font-semibold transition-colors hover:text-primary-green-700 font-serif"
           >
             Sign in

@@ -7,7 +7,7 @@ export default function ProductHero() {
           "radial-gradient(45% 45% at 78% 12%, rgba(120,127,150,0.14), transparent 70%), #f7f4ec",
       }}
     >
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:pt-18 lg:pb-32">
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:pt-18 lg:pb-16">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-600">*/}
         {/*  PRODUCT*/}
         {/*</p>*/}
@@ -42,6 +42,23 @@ export default function ProductHero() {
               &rarr;
             </span>
             </a>
+          </div>
+        </div>
+
+        <div className='max-w-5xl mx-auto mt-12'>
+          <div className='p-2 bg-white rounded-xl shadow-2xl'>
+            <div className='flex justify-between border-b border-b-neutral-100 pb-2 px-1'>
+              <div className='flex items-center space-x-1.5'>
+                <div className='w-3 h-3 rounded-full bg-red-500' />
+                <div className='w-3 h-3 rounded-full bg-primary-green-500' />
+                <div className='w-3 h-3 rounded-full bg-blue-500' />
+              </div>
+
+              <div className='text-xs text-primary-green-600 font-serif'>
+                <p>Emulsion FS</p>
+              </div>
+            </div>
+            <img src='/product_designs/sage_platform_design.png' className='w-full h-auto object-cover rounded-lg' alt='Emulsion Product' />
           </div>
         </div>
       </div>

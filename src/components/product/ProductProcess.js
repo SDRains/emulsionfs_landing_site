@@ -24,23 +24,31 @@ const STEPS = [
 export default function ProductProcess() {
   return (
     <section className="bg-dark-background text-white">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
-        <h2 className="font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-          <span className="text-primary-cream">
-            Not a login and a link to the docs.
-          </span>
-          <br />
-          <span className="italic text-primary-green-600">
-            A team that maps your business.
-          </span>
-        </h2>
+      <div className="mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+          <div className=''>
+            <h2 className="font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+              <span className="text-primary-cream">
+                Not a login and a link to the docs.
+              </span>
+                <br />
+                <span className="italic text-primary-green-600">
+                A team that maps your business.
+              </span>
+            </h2>
 
-        <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-300">
-          Every acquisitive organization is structured differently. Our
-          consultants work with your finance team to understand your entities,
-          your reporting needs, and your close process — then configure Emulsion
-          to match.
-        </p>
+            <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-300">
+              Every acquisitive organization is structured differently. Our
+              consultants work with your finance team to understand your entities,
+              your reporting needs, and your close process — then configure Emulsion
+              to match.
+            </p>
+          </div>
+
+          <div className='flex justify-end'>
+            <img src='/product_designs/platform_unified.png' className='w-auto h-96 object-cover rounded-xl shadow-xl shadow-white/10' alt='Emulsion Product' />
+          </div>
+        </div>
 
         {/* Timeline */}
         <div className="mt-16 border-t border-white/10 pt-10">
@@ -68,7 +76,7 @@ export default function ProductProcess() {
 
         {/* Callout */}
         <div className="mt-16 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 sm:px-8">
-          <img src='/emulsion_logo_dark.png' className='h-8 w-auto object-cover' />
+          <img src='/emulsion_logo_dark_no_footer.png' className='h-8 w-auto object-cover' />
 
           <p className="text-base leading-7 text-slate-300">
             <span className="font-semibold text-white">New acquisition?</span>{" "}
