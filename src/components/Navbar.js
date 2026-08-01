@@ -57,7 +57,7 @@ export default function Navbar({activePage = "home"}) {
           </a>
           <a
             href="/contact?intent=demo"
-            className="rounded-full bg-primary-green-600 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 "
+            className="bg-primary-green-600 px-5 py-2.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 "
           >
             Book a Demo
           </a>

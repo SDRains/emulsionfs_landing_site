@@ -79,7 +79,7 @@ export default function Problem() {
     <section className="relative overflow-hidden bg-dark-background text-primary-cream">
       <RingGraphic />
 
-      <div className="relative mx-auto max-w-screen-2xl px-6 py-28 lg:px-10">
+      <div className="relative mx-auto max-w-screen-2xl px-6 py-16 lg:px-10">
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-700">*/}
         {/*  THE PROBLEM*/}
         {/*</p>*/}
@@ -88,7 +88,7 @@ export default function Problem() {
         </h2>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <p className="max-w-xl text-lg leading-8 text-slate-300 mt-20">
+          <p className="max-w-xl text-lg leading-8 text-slate-300 pt-12">
             When you buy a company, you inherit more than its assets — you
             inherit its systems. Every entity arrives running its own accounting
             platform, its own logins, its own subscription, its own way of

@@ -86,9 +86,9 @@ function NodeCard() {
 
 export default function HowItWorks() {
   return (
-    <section className="bg-primary-cream text-[#141414]">
+    <section className="bg-white text-[#141414]">
       <div className="mx-auto max-w-screen-2xl px-6 pb-28 lg:px-10">
-        <h2 className="mt-6 max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-center">
+        <h2 className="pt-6 max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-center">
           Two ways to connect,
           <br />
           <span className="font-serif italic text-primary-green-600">one place to work.</span>

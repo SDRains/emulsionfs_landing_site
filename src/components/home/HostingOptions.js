@@ -26,7 +26,7 @@ const OPTIONS = [
 export default function HostingOptions() {
   return (
     <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-screen-2xl px-6 py-32 lg:px-10">
+      <div className="mx-auto max-w-screen-2xl px-6 pb-28 lg:px-10">
         {/*<p className="text-center font-mono text-xs font-semibold tracking-[0.2em] text-cyan-600">*/}
         {/*  ONE PLATFORM, YOUR CHOICE OF ENVIRONMENT*/}
         {/*</p>*/}

@@ -2,7 +2,7 @@ import {ArrowDownIcon, ArrowRightIcon} from "lucide-react";
 
 export default function CaseStudy() {
   return (
-    <div className='px-4 ms:px-0 pt-8 pb-24 bg-primary-cream'>
+    <div className='px-4 ms:px-0 pb-24 bg-primary-cream'>
       <div className='max-w-screen-2xl mx-auto'>
         <section className="bg-[#0b1a2e] text-white rounded-4xl shadow-2xl">
           <div className="p-8 lg:p-12">

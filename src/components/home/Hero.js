@@ -5,7 +5,7 @@ const LOGOS = [
   { src: "/jde-logo.png", alt: "JD Edwards" },
   { src: "/sage-logo.svg", alt: "Sage Intacct" },
   { src: "/qb-logo.png", alt: "QuickBooks" },
-  { src: "/netsuite-logo.png", alt: "NetSuite" },
+  { src: "/netsuite-logo.jpg", alt: "NetSuite" },
 ];
 
 export default function Hero() {
