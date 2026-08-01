@@ -60,7 +60,7 @@ const EMPTY_FORM = {
 };
 
 const FIELD_CLASS =
-  "w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none disabled:opacity-60";
+  "w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-primary-green-500 focus:outline-none disabled:opacity-60";
 
 function Label({ children }) {
   return (
@@ -167,7 +167,7 @@ function MultiSelectField({ label, options, values, onChange, disabled }) {
                 >
                   <span
                     className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                      checked ? "border-cyan-500 bg-cyan-600" : "border-white/25"
+                      checked ? "border-primary-green-500 bg-primary-green-600" : "border-white/25"
                     }`}
                   >
                     {checked && (
@@ -192,8 +192,8 @@ function SuccessPanel({ intent }) {
       : "We'll be in touch within one business day.";
   return (
     <div className="flex flex-col items-center py-10 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cyan-500/15">
-        <CheckIcon className="h-7 w-7 text-cyan-400" strokeWidth={2.5} />
+      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-green-500/15">
+        <CheckIcon className="h-7 w-7 text-primary-green-500" strokeWidth={2.5} />
       </span>
       <h3 className="mt-6 font-serif text-2xl font-bold text-white">
         Request received.
@@ -202,7 +202,7 @@ function SuccessPanel({ intent }) {
         Thanks for reaching out. {followUp} Prefer to talk sooner? Email{" "}
         <a
           href="mailto:hello@emulsionfs.com"
-          className="font-semibold text-cyan-400 hover:text-cyan-300"
+          className="font-semibold text-primary-green-500 hover:text-primary-green-500"
         >
           hello@emulsionfs.com
         </a>
@@ -300,7 +300,7 @@ export default function ContactForm() {
               <p className="text-sm text-slate-500">Prefer email?</p>
               <a
                 href="mailto:hello@emulsionfs.com"
-                className="mt-1 inline-block text-lg font-semibold text-dark-blue transition-colors hover:text-cyan-600"
+                className="mt-1 inline-block text-lg font-semibold text-dark-blue transition-colors hover:text-primary-green-600"
               >
                 hello@emulsionfs.com
               </a>
@@ -331,7 +331,7 @@ export default function ContactForm() {
                           key={i.value}
                           className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                             intent === i.value
-                              ? "bg-cyan-600 text-white"
+                              ? "bg-primary-green-600 text-white"
                               : "border border-white/15 text-slate-300 hover:bg-white/5"
                           }`}
                         >
@@ -456,7 +456,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full cursor-pointer rounded-full bg-cyan-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-70"
+                    className="w-full cursor-pointer rounded-full bg-primary-green-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {submitting ? "Sending…" : "Send request"}
                   </button>

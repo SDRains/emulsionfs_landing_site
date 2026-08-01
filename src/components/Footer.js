@@ -22,7 +22,7 @@ const COLUMNS = [
     heading: "COMPANY",
     links: [
       { label: "About", href: "#" },
-      { label: "Security", href: "#" },
+      { label: "Security", href: "/security" },
       { label: "Contact", href: "/contact" },
       { label: "Book a demo", href: "/contact?intent=demo" },
     ],
@@ -31,7 +31,6 @@ const COLUMNS = [
 
 const LEGAL = [
   { label: "Privacy", href: "#" },
-  { label: "Security", href: "#" },
   { label: "Terms", href: "#" },
 ];
 

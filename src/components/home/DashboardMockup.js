@@ -21,13 +21,13 @@ const STATS = [
   },
   {
     label: "SYSTEMS CONNECTED",
-    value: "9 live · 5 archived",
-    sub: "JDE, Intacct, QB, NetSuite…",
+    value: "14 Systems",
+    sub: "9 live · 5 archived",
   },
   {
-    label: "LAST CONSOLIDATED REPORT",
-    value: "2.1 hours",
-    sub: "down from 3 weeks",
+    label: "LAST REPORT",
+    value: "2 hours ago",
+    sub: "7 systems included",
   },
 ];
 

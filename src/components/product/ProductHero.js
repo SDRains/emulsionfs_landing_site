@@ -29,13 +29,13 @@ export default function ProductHero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
                 href="/contact?intent=demo"
-                className="rounded-full bg-primary-green-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500"
+                className="bg-primary-green-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500"
             >
               Book a Demo
             </a>
             <a
                 href="/contact?intent=sales"
-                className="group inline-flex items-center gap-2 rounded-full border border-primary-green-700/40 px-7 py-3.5 text-base font-semibold text-primary-green-600 transition-colors hover:bg-black/[0.03]"
+                className="group inline-flex items-center gap-2 border border-primary-green-700/40 px-7 py-3.5 text-base font-semibold text-primary-green-600 transition-colors hover:bg-black/[0.03]"
             >
               Talk to a consultant
               <span className="transition-transform group-hover:translate-x-1">
@@ -46,19 +46,20 @@ export default function ProductHero() {
         </div>
 
         <div className='max-w-5xl mx-auto mt-12'>
-          <div className='p-2 bg-white rounded-xl shadow-2xl'>
-            <div className='flex justify-between border-b border-b-neutral-100 pb-2 px-1'>
+          <div className='bg-white rounded-xl shadow-2xl'>
+            <div className='flex justify-between bg-neutral-100 py-2 px-2 rounded-t-xl'>
               <div className='flex items-center space-x-1.5'>
                 <div className='w-3 h-3 rounded-full bg-red-500' />
                 <div className='w-3 h-3 rounded-full bg-primary-green-500' />
                 <div className='w-3 h-3 rounded-full bg-blue-500' />
               </div>
 
-              <div className='text-xs text-primary-green-600 font-serif'>
+              <div className='text-xs text-primary-green-600 font-serif pr-1.5'>
                 <p>Emulsion FS</p>
               </div>
             </div>
-            <img src='/product_designs/sage_platform_design.png' className='w-full h-auto object-cover rounded-lg' alt='Emulsion Product' />
+
+            <img src='/product_designs/sage_platform_design.png' className='w-full h-auto object-cover rounded-lg mt-1 pl-1' alt='Emulsion Product' />
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function ContactHero() {
         <h1 className="font-serif text-5xl font-semibold leading-[1.05] text-dark-blue sm:text-6xl">
           Book a demo.
           <br />
-          <span className="italic text-cyan-600">Or just ask us anything.</span>
+          <span className="italic text-primary-green-600">Or just ask us anything.</span>
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-500">
