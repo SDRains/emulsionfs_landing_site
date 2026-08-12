@@ -32,12 +32,11 @@ export default function HostingOptions() {
         {/*</p>*/}
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
-          <div>
-            <h2 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-              One platform, <span className="font-serif italic text-primary-green-600 pl-2">your choice of environment.</span>
+          <div className=''>
+            <h2 className="text-5xl font-semibold font-new-serif leading-[1.1] tracking-tight sm:text-6xl text-left">
+              One platform, <span className="italic text-primary-green-600">your choice of environment.</span>
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-500">
+            <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-slate-500 text-left">
               Emulsion is a single platform with two ways to run it. Let us host it
               for the fastest start, or deploy it inside your own environment so your
               data never leaves your network. Same product, same capabilities — you

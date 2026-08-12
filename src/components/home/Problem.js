@@ -83,7 +83,7 @@ export default function Problem() {
         {/*<p className="font-mono text-sm font-semibold tracking-[0.2em] text-blue-700">*/}
         {/*  THE PROBLEM*/}
         {/*</p>*/}
-        <h2 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
+        <h2 className="mt-6 max-w-3xl text-5xl font-semibold font-new-serif leading-[1.1] tracking-tight sm:text-6xl">
           Growth by acquisition means growth by fragmentation.
         </h2>
 

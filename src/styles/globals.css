@@ -31,6 +31,7 @@
 @theme inline {
   --font-serif: var(--font-source-serif), ui-serif, Georgia, Cambria,
     "Times New Roman", serif;
+  --font-new-serif: "P22 Mackinac W01 Book", Georgia, serif;
 }
 
 body {

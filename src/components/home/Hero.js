@@ -1,5 +1,6 @@
 import DashboardMockup from "@/components/home/DashboardMockup";
 import ImageMarquee from "@/components/home/Marquee";
+import {PrimaryCTAButton, PrimarySubCTAButton} from "@/components/global/buttons";
 
 const LOGOS = [
   { src: "/jde-logo.png", alt: "JD Edwards" },
@@ -22,34 +23,21 @@ export default function Hero() {
         <div className="grid items-center gap-0 grid-cols-1 lg:grid-cols-7 lg:gap-0">
           {/* Copy */}
           <div className="lg:col-span-3">
-            <h1 className="font-serif text-5xl font-semibold leading-[1.08] tracking-tight text-[#0f2038] sm:text-5xl md:text-6xl">
+            <h1 className="font-new-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-[#191919] font-normal">
               All your financial data.
               <br />
               <span className="italic text-primary-green-600">One source of truth.</span>
             </h1>
 
-            <p className="mt-8 max-w-lg text-lg leading-8 text-slate-600">
+            <p className="mt-8 max-w-lg text-lg font-new-serif leading-8 text-slate-600">
               Emulsion unifies JD Edwards, Sage Intacct, QuickBooks and every
               other platform you&apos;ve inherited into one searchable,
               permanent source of financial truth.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="/contact?intent=demo"
-                className="bg-primary-green-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-700"
-              >
-                Book a Demo
-              </a>
-              <a
-                href="#how-it-works"
-                className="group inline-flex items-center gap-2 border border-[#0f2038]/25 bg-white/30 px-7 py-3.5 text-base font-semibold text-[#0f2038] backdrop-blur-sm transition-colors hover:bg-white/50"
-              >
-                See how it works
-                <span className="transition-transform group-hover:translate-x-1">
-                  &rarr;
-                </span>
-              </a>
+              <PrimaryCTAButton content="Book a Demo" link="/contact?intent=demo" />
+              <PrimarySubCTAButton content="See how it works" link="/product" />
             </div>
           </div>
 

@@ -81,16 +81,17 @@ export default function DashboardMockup() {
       {/* Body */}
       <div className="flex text-left">
         {/* Sidebar */}
-        <aside className="hidden w-52 shrink-0 border-r border-slate-100 p-4 md:block">
-          <nav className="flex flex-col gap-1 text-sm">
+        <aside className="hidden w-52 shrink-0 border-r border-slate-100 p-2 md:block">
+          <nav className="flex flex-col gap-1 text-sm">s
             {NAV.map((item, i) => (
               <span
                 key={item}
-                className={
-                  i === 0
-                    ? "rounded-md bg-slate-100 px-3 py-2 font-semibold text-[#0f2038]"
-                    : "px-3 py-2 text-slate-500"
-                }
+                className={`cursor-pointer hover:bg-neutral-50 px-3 py-2
+                ${
+                    i === 0
+                        ? "rounded-md bg-slate-100 font-semibold text-[#0f2038]"
+                        : "text-slate-500"
+                }`}
               >
                 {item}
               </span>
@@ -105,7 +106,7 @@ export default function DashboardMockup() {
             <h3 className="text-lg font-bold text-[#0f2038]">
               Portfolio overview
             </h3>
-            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 font-mono text-xs text-emerald-700">
+            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 font-mono text-[10px] text-emerald-700">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               12 ENTITIES · ALL SYNCED
             </span>
@@ -116,12 +117,12 @@ export default function DashboardMockup() {
             {STATS.map((s) => (
               <div
                 key={s.label}
-                className="rounded-lg border border-slate-200 p-4"
+                className="rounded-lg border border-slate-200 p-4 cursor-pointer hover:bg-neutral-50"
               >
                 <p className="font-mono text-[10px] tracking-wider text-slate-400">
                   {s.label}
                 </p>
-                <p className="mt-2 text-xl font-bold text-[#0f2038]">
+                <p className="mt-2 text-lg font-bold text-[#0f2038]">
                   {s.value}
                 </p>
                 <p className="mt-1 text-xs text-slate-500">{s.sub}</p>
@@ -144,13 +145,13 @@ export default function DashboardMockup() {
                 {ROWS.map((r) => (
                   <div
                     key={r.entity}
-                    className={`${COLS} items-center py-3 text-sm`}
+                    className={`${COLS} items-center py-3 text-sm cursor-pointer hover:bg-neutral-50`}
                   >
-                    <span className="font-semibold text-[#0f2038]">
+                    <span className="font-semibold text-[#0f2038] text-[12px]">
                       {r.entity}
                     </span>
-                    <span className="text-slate-500">{r.source}</span>
-                    <span className="inline-flex items-center gap-1.5">
+                    <span className="text-slate-500 text-[12px]">{r.source}</span>
+                    <span className="inline-flex items-center gap-1.5 text-[12px]">
                       <span
                         className={`h-1.5 w-1.5 rounded-full ${
                           r.status === "Live" ? "bg-emerald-500" : "bg-slate-400"

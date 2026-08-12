@@ -4,7 +4,7 @@ export default function Solution() {
       <div className="mx-auto max-w-screen-2xl px-6 py-16 lg:px-10">
         <div className='grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-8 items-start pt-6'>
             <div className='lg:col-span-2'>
-                <h2 className="max-w-4xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl text-left">
+                <h2 className="text-5xl font-semibold font-new-serif leading-[1.1] tracking-tight sm:text-6xl text-left">
                     Consolidate every system you run into one.
                 </h2>
                 <p className="mt-8 max-w-3xl mx-auto text-lg leading-8 text-slate-500 text-left">

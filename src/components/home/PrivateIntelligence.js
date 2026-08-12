@@ -27,9 +27,9 @@ export default function PrivateIntelligence() {
             OPTIONAL
           </span>
 
-          <h2 className="text-center mt-6 max-w-5xl mx-auto text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
+          <h2 className="text-center mt-6 max-w-6xl mx-auto text-5xl font-semibold font-new-serif leading-[1.1] tracking-tight sm:text-6xl">
             Put your financial data to work{" "}
-            <span className="italic font-serif text-primary-green-600">
+            <span className="italic text-primary-green-600">
               without it ever leaving your control.
             </span>
           </h2>

@@ -62,7 +62,7 @@ export default function WhoItsFor() {
                         ))}
                     </div>
 
-                    <h2 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl col-span-2 text-left">
+                    <h2 className="mt-6 text-5xl font-semibold font-new-serif leading-[1.1] tracking-tight sm:text-6xl col-span-2 text-left">
                         Built for organizations that grew through acquisition.
                     </h2>
                 </div>
