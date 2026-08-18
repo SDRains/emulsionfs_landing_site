@@ -12,7 +12,10 @@ const NAV_LINKS = [
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <img src='/emulsion_logo_light.png' className='h-12 w-auto object-cover'  alt='Emulsion Financial Solutions' />
+      <div className='flex items-center gap-4'>
+        <img src='/emulsion-icons/icon-light.png' className='h-8 w-auto object-cover'  alt='Emulsion Financial Solutions' />
+        <img src='/emulsion_logo_light_no_footer.png' className='h-14 w-auto object-cover'  alt='Emulsion Financial Solutions' />
+      </div>
     </Link>
   );
 }

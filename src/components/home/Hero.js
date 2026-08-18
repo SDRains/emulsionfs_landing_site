@@ -23,10 +23,8 @@ export default function Hero() {
         <div className="grid items-center gap-0 grid-cols-1 lg:grid-cols-7 lg:gap-0">
           {/* Copy */}
           <div className="lg:col-span-3">
-            <h1 className="font-new-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-[#191919] font-normal">
-              All your financial data.
-              <br />
-              <span className="italic text-primary-green-600">One source of truth.</span>
+            <h1 className="font-new-serif text-5xl sm:text-5xl lg:text-6xl sm:leading-[1.1] text-center sm:text-left tracking-tight text-[#191919] font-normal">
+              All your financial data. <span className="italic text-primary-green-600">One source of truth.</span>
             </h1>
 
             <p className="mt-8 max-w-lg text-lg font-new-serif leading-8 text-slate-600">
