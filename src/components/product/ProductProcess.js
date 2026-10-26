@@ -46,7 +46,7 @@ export default function ProductProcess() {
           </div>
 
           <div className='flex justify-end'>
-            <img src='/product_designs/platform_unified.png' className='w-auto h-96 object-cover rounded-xl shadow-xl shadow-white/10' alt='Emulsion Product' />
+            <img src='/product_designs/platform_funnel_design.png' className='w-auto h-96 object-cover' alt='Emulsion Product' />
           </div>
         </div>
 
