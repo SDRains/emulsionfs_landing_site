@@ -20,8 +20,13 @@ export default function Contact() {
             />
             <Navbar activePage='contact' />
             <main>
-                <ContactHero />
-                <ContactForm />
+                {/* Pitch and form side by side, so the form is visible on load. */}
+                <section className="bg-primary-cream px-4 pb-24 text-forest-ink lg:pb-32">
+                    <div className="mx-auto grid max-w-[1240px] items-start gap-x-18 gap-y-14 px-2 pt-36 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:pt-44">
+                        <ContactHero />
+                        <ContactForm />
+                    </div>
+                </section>
             </main>
             <Footer />
         </div>

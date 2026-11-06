@@ -1,30 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import {
-  ClockIcon,
-  UsersIcon,
-  ShieldCheckIcon,
-  ChevronDownIcon,
-  CheckIcon,
-} from "lucide-react";
-
-const EXPECT = [
-  {
-    icon: ClockIcon,
-    title: "One business day",
-    body: "We reply within one business day — usually sooner.",
-  },
-  {
-    icon: UsersIcon,
-    title: "30 minutes, your systems",
-    body: "A working session with a consultant, not a pitch deck. We'll show Emulsion against the stack you actually run.",
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "No commitment",
-    body: "Nothing to sign, and we'll never share your details.",
-  },
-];
+import { CheckIcon, ChevronDownIcon } from "lucide-react";
 
 const INTENTS = [
   { value: "demo", label: "Book a demo" },
@@ -60,14 +36,14 @@ const EMPTY_FORM = {
 };
 
 const FIELD_CLASS =
-  "w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-primary-green-500 focus:outline-none disabled:opacity-60";
+  "w-full rounded-xl border border-white/15 bg-white/[0.06] px-3.5 py-3 text-[15px] text-white placeholder:text-white/45 focus:border-lime-accent focus:ring-3 focus:ring-lime-accent/20 focus:outline-none disabled:opacity-60";
 
 function Label({ children }) {
-  return (
-    <span className="mb-1.5 block text-xs font-semibold text-slate-300">
-      {children}
-    </span>
-  );
+  return <span className="mb-2 block text-[13px] font-semibold text-white/80">{children}</span>;
+}
+
+function Optional() {
+  return <span className="font-normal text-white/50"> (optional)</span>;
 }
 
 function SelectField({ label, options, value, onChange, disabled }) {
@@ -76,21 +52,24 @@ function SelectField({ label, options, value, onChange, disabled }) {
       <Label>{label}</Label>
       <div className="relative">
         <select
-          className={`${FIELD_CLASS} appearance-none pr-9`}
+          className={`${FIELD_CLASS} appearance-none pr-10`}
           value={value}
           onChange={onChange}
           disabled={disabled}
         >
-          <option value="" disabled className="text-slate-900">
+          <option value="" disabled className="text-forest-ink">
             Select…
           </option>
           {options.map((o) => (
-            <option key={o} value={o} className="text-slate-900">
+            <option key={o} value={o} className="text-forest-ink">
               {o}
             </option>
           ))}
         </select>
-        <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <ChevronDownIcon
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-white/60"
+        />
       </div>
     </label>
   );
@@ -117,18 +96,7 @@ function MultiSelectField({ label, options, values, onChange, disabled }) {
   }, [open]);
 
   const toggle = (opt) =>
-    onChange(
-      values.includes(opt)
-        ? values.filter((v) => v !== opt)
-        : [...values, opt]
-    );
-
-  const summary =
-    values.length === 0
-      ? "Select…"
-      : values.length === 1
-        ? values[0]
-        : `${values.length} selected`;
+    onChange(values.includes(opt) ? values.filter((v) => v !== opt) : [...values, opt]);
 
   return (
     <div className="block" ref={ref}>
@@ -140,19 +108,34 @@ function MultiSelectField({ label, options, values, onChange, disabled }) {
           onClick={() => setOpen((o) => !o)}
           aria-haspopup="listbox"
           aria-expanded={open}
-          className={`${FIELD_CLASS} flex items-center justify-between text-left ${
-            values.length === 0 ? "text-slate-500" : "text-white"
-          }`}
+          className={`${FIELD_CLASS} flex cursor-pointer items-center justify-between gap-2 text-left`}
         >
-          <span className="truncate">{summary}</span>
-          <ChevronDownIcon className="ml-2 h-4 w-4 shrink-0 text-slate-400" />
+          {values.length === 0 ? (
+            <span className="truncate text-white/45">Select…</span>
+          ) : (
+            // First pick as a chip, then a count of the rest.
+            <span className="flex min-w-0 gap-1.5">
+              <span className="truncate rounded-full bg-lime-accent px-2.5 py-0.5 text-xs font-semibold text-forest-900">
+                {values[0]}
+              </span>
+              {values.length > 1 && (
+                <span className="flex-none rounded-full bg-mint-200 px-2.5 py-0.5 text-xs font-semibold text-forest-900">
+                  +{values.length - 1}
+                </span>
+              )}
+            </span>
+          )}
+          <ChevronDownIcon
+            aria-hidden="true"
+            className={`size-4 shrink-0 text-white/60 transition-transform ${open ? "rotate-180" : ""}`}
+          />
         </button>
 
         {open && (
           <div
             role="listbox"
             aria-multiselectable="true"
-            className="absolute z-20 mt-2 max-h-60 w-full overflow-y-auto rounded-lg border border-white/10 bg-[#13243f] p-1 shadow-xl"
+            className="absolute z-20 mt-2 max-h-64 w-full overflow-y-auto rounded-2xl border border-white/10 bg-forest-950 p-1.5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)]"
           >
             {options.map((opt) => {
               const checked = values.includes(opt);
@@ -163,16 +146,14 @@ function MultiSelectField({ label, options, values, onChange, disabled }) {
                   role="option"
                   aria-selected={checked}
                   onClick={() => toggle(opt)}
-                  className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm text-slate-200 hover:bg-white/5"
+                  className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm text-white/85 hover:bg-white/[0.06]"
                 >
                   <span
-                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                      checked ? "border-primary-green-500 bg-primary-green-600" : "border-white/25"
+                    className={`flex size-4 shrink-0 items-center justify-center rounded border ${
+                      checked ? "border-lime-accent bg-lime-accent" : "border-white/25"
                     }`}
                   >
-                    {checked && (
-                      <CheckIcon className="h-3 w-3 text-white" strokeWidth={3} />
-                    )}
+                    {checked && <CheckIcon className="size-3 text-forest-900" strokeWidth={3} />}
                   </span>
                   {opt}
                 </button>
@@ -191,19 +172,16 @@ function SuccessPanel({ intent }) {
       ? "We'll be in touch within one business day to schedule your walkthrough."
       : "We'll be in touch within one business day.";
   return (
-    <div className="flex flex-col items-center py-10 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-green-500/15">
-        <CheckIcon className="h-7 w-7 text-primary-green-500" strokeWidth={2.5} />
+    <div className="flex flex-col items-center py-12 text-center">
+      <span className="flex size-16 items-center justify-center rounded-full bg-lime-accent shadow-[0_0_40px_rgba(212,245,122,0.45)]">
+        <CheckIcon className="size-8 text-forest-900" strokeWidth={2.5} />
       </span>
-      <h3 className="mt-6 font-serif text-2xl font-bold text-white">
-        Request received.
-      </h3>
-      <p className="mt-3 max-w-xs text-sm leading-6 text-slate-400">
+      <h2 className="mt-7 font-new-serif text-[32px] font-normal">
+        Request <span className="italic text-lime-accent">received.</span>
+      </h2>
+      <p className="mt-3 max-w-xs text-[15px] leading-relaxed text-white/70">
         Thanks for reaching out. {followUp} Prefer to talk sooner? Email{" "}
-        <a
-          href="mailto:hello@emulsionfs.com"
-          className="font-semibold text-primary-green-500 hover:text-primary-green-500"
-        >
+        <a href="mailto:hello@emulsionfs.com" className="font-semibold text-lime-accent hover:text-white">
           hello@emulsionfs.com
         </a>
         .
@@ -212,6 +190,7 @@ function SuccessPanel({ intent }) {
   );
 }
 
+/** The contact form card. Submits to /api/subscribe (Mailchimp). */
 export default function ContactForm() {
   const router = useRouter();
   const [intent, setIntent] = useState("demo");
@@ -230,8 +209,7 @@ export default function ContactForm() {
     if (INTENTS.some((i) => i.value === q)) setIntent(q);
   }, [router.isReady, router.query.intent]);
 
-  const set = (key) => (e) =>
-    setForm((f) => ({ ...f, [key]: e.target.value }));
+  const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -259,217 +237,172 @@ export default function ContactForm() {
       }
     } catch {
       setStatus("error");
-      setErrorMsg(
-        "Couldn't reach the server. Please try again, or email hello@emulsionfs.com."
-      );
+      setErrorMsg("Couldn't reach the server. Please try again, or email hello@emulsionfs.com.");
     }
   }
 
   return (
-    <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
-          {/* Left: what to expect + direct contact */}
-          <div>
-            <h2 className="font-serif text-3xl font-semibold leading-tight text-dark-blue">
-              What to expect
-            </h2>
+    <div className="relative">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-x-10 -inset-y-16 bg-[radial-gradient(closest-side,rgba(212,245,122,0.4),rgba(212,245,122,0)_75%)]"
+      />
+      <div className="relative overflow-hidden rounded-[32px] bg-forest-900 p-6 text-white shadow-[0_40px_80px_-24px_rgba(19,43,29,0.5)] sm:p-10">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-50 -right-40 h-[520px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(70,131,88,0.55),transparent)]"
+        />
+        <div className="relative">
+          {status === "success" ? (
+            <SuccessPanel intent={intent} />
+          ) : (
+            <>
+              <h2 className="font-new-serif text-[32px] font-normal">
+                Tell us about <span className="italic text-lime-accent">your setup.</span>
+              </h2>
+              <p className="mt-2 text-[15px] text-white/65">
+                The more you share, the more useful the first call is.
+              </p>
 
-            <div className="mt-8 space-y-7">
-              {EXPECT.map((e) => {
-                const Icon = e.icon;
-                return (
-                  <div key={e.title} className="flex gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-cream ring-1 ring-black/5">
-                      <Icon className="h-5 w-5 text-dark-blue" />
-                    </span>
-                    <div>
-                      <h3 className="text-base font-bold text-dark-blue">
-                        {e.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-6 text-slate-500">
-                        {e.body}
-                      </p>
-                    </div>
+              <form onSubmit={handleSubmit} className="mt-7 flex flex-col gap-[18px]" noValidate>
+                <fieldset disabled={submitting}>
+                  <legend className="mb-2.5 block text-[13px] font-semibold text-white/80">I&apos;d like to…</legend>
+                  <div className="inline-flex flex-wrap gap-1 rounded-full border border-white/10 bg-white/[0.06] p-1">
+                    {INTENTS.map((i) => (
+                      <label
+                        key={i.value}
+                        className={`cursor-pointer rounded-full px-[18px] py-2 text-sm font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-lime-accent ${
+                          intent === i.value ? "bg-lime-accent text-forest-900" : "text-white/80 hover:bg-white/[0.08]"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="intent"
+                          value={i.value}
+                          checked={intent === i.value}
+                          onChange={() => setIntent(i.value)}
+                          className="sr-only"
+                        />
+                        {i.label}
+                      </label>
+                    ))}
                   </div>
-                );
-              })}
-            </div>
+                </fieldset>
 
-            <div className="mt-10 border-t border-slate-200 pt-8">
-              <p className="text-sm text-slate-500">Prefer email?</p>
-              <a
-                href="mailto:hello@emulsionfs.com"
-                className="mt-1 inline-block text-lg font-semibold text-dark-blue transition-colors hover:text-primary-green-600"
-              >
-                hello@emulsionfs.com
-              </a>
-            </div>
-          </div>
-
-          {/* Right: the form */}
-          <div className="rounded-2xl bg-dark-blue p-8 text-white shadow-[0_25px_50px_-15px_rgba(15,23,42,0.4)]">
-            {status === "success" ? (
-              <SuccessPanel intent={intent} />
-            ) : (
-              <>
-                <h3 className="font-serif text-2xl font-bold">
-                  Tell us about your setup.
-                </h3>
-                <p className="mt-2 text-sm text-slate-400">
-                  The more you share, the more useful the first call is.
-                </p>
-
-                <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
-                  <fieldset disabled={submitting}>
-                    <legend className="mb-2 block text-xs font-semibold text-slate-300">
-                      I&apos;d like to…
-                    </legend>
-                    <div className="flex flex-wrap gap-2">
-                      {INTENTS.map((i) => (
-                        <label
-                          key={i.value}
-                          className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                            intent === i.value
-                              ? "bg-primary-green-600 text-white"
-                              : "border border-white/15 text-slate-300 hover:bg-white/5"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            name="intent"
-                            value={i.value}
-                            checked={intent === i.value}
-                            onChange={() => setIntent(i.value)}
-                            className="sr-only"
-                          />
-                          {i.label}
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="block">
-                      <Label>Name</Label>
-                      <input
-                        className={FIELD_CLASS}
-                        placeholder="Jane Rivera"
-                        value={form.name}
-                        onChange={set("name")}
-                        autoComplete="name"
-                        required
-                        disabled={submitting}
-                      />
-                    </label>
-                    <label className="block">
-                      <Label>Work email</Label>
-                      <input
-                        type="email"
-                        className={FIELD_CLASS}
-                        placeholder="jane@company.com"
-                        value={form.email}
-                        onChange={set("email")}
-                        autoComplete="email"
-                        required
-                        disabled={submitting}
-                      />
-                    </label>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="block">
-                      <Label>Company</Label>
-                      <input
-                        className={FIELD_CLASS}
-                        placeholder="Company or holding group"
-                        value={form.company}
-                        onChange={set("company")}
-                        autoComplete="organization"
-                        disabled={submitting}
-                      />
-                    </label>
-                    <label className="block">
-                      <Label>
-                        Phone{" "}
-                        <span className="font-normal text-slate-500">
-                          (optional)
-                        </span>
-                      </Label>
-                      <input
-                        type="tel"
-                        className={FIELD_CLASS}
-                        placeholder="+1 555 000 1234"
-                        value={form.phone}
-                        onChange={set("phone")}
-                        autoComplete="tel"
-                        disabled={submitting}
-                      />
-                    </label>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <SelectField
-                      label="Entities"
-                      options={["1–3", "4–10", "11–25", "25+"]}
-                      value={form.entities}
-                      onChange={set("entities")}
-                      disabled={submitting}
-                    />
-                    <MultiSelectField
-                      label="Accounting systems"
-                      options={ACCOUNTING_SYSTEMS}
-                      values={form.systems}
-                      onChange={(vals) =>
-                        setForm((f) => ({ ...f, systems: vals }))
-                      }
-                      disabled={submitting}
-                    />
-                  </div>
-
+                <div className="grid gap-4 sm:grid-cols-2">
                   <label className="block">
-                    <Label>
-                      What are you running today?{" "}
-                      <span className="font-normal text-slate-500">
-                        (optional)
-                      </span>
-                    </Label>
-                    <textarea
-                      rows={4}
-                      className={`${FIELD_CLASS} resize-none`}
-                      placeholder="e.g. JD Edwards at HQ, three entities on QuickBooks, one legacy Great Plains install we'd love to retire…"
-                      value={form.message}
-                      onChange={set("message")}
+                    <Label>Name</Label>
+                    <input
+                      className={FIELD_CLASS}
+                      placeholder="Jane Rivera"
+                      value={form.name}
+                      onChange={set("name")}
+                      autoComplete="name"
+                      required
                       disabled={submitting}
                     />
                   </label>
+                  <label className="block">
+                    <Label>Work email</Label>
+                    <input
+                      type="email"
+                      className={FIELD_CLASS}
+                      placeholder="jane@company.com"
+                      value={form.email}
+                      onChange={set("email")}
+                      autoComplete="email"
+                      required
+                      disabled={submitting}
+                    />
+                  </label>
+                </div>
 
-                  {status === "error" && (
-                    <p
-                      role="alert"
-                      className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2.5 text-sm text-red-300"
-                    >
-                      {errorMsg}
-                    </p>
-                  )}
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <Label>Company</Label>
+                    <input
+                      className={FIELD_CLASS}
+                      placeholder="Company or holding group"
+                      value={form.company}
+                      onChange={set("company")}
+                      autoComplete="organization"
+                      disabled={submitting}
+                    />
+                  </label>
+                  <label className="block">
+                    <Label>
+                      Phone
+                      <Optional />
+                    </Label>
+                    <input
+                      type="tel"
+                      className={FIELD_CLASS}
+                      placeholder="+1 555 000 1234"
+                      value={form.phone}
+                      onChange={set("phone")}
+                      autoComplete="tel"
+                      disabled={submitting}
+                    />
+                  </label>
+                </div>
 
-                  <button
-                    type="submit"
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <SelectField
+                    label="Entities"
+                    options={["1–3", "4–10", "11–25", "25+"]}
+                    value={form.entities}
+                    onChange={set("entities")}
                     disabled={submitting}
-                    className="w-full cursor-pointer rounded-full bg-primary-green-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500 disabled:cursor-not-allowed disabled:opacity-70"
-                  >
-                    {submitting ? "Sending…" : "Send request"}
-                  </button>
+                  />
+                  <MultiSelectField
+                    label="Accounting systems"
+                    options={ACCOUNTING_SYSTEMS}
+                    values={form.systems}
+                    onChange={(vals) => setForm((f) => ({ ...f, systems: vals }))}
+                    disabled={submitting}
+                  />
+                </div>
 
-                  <p className="text-center text-xs text-slate-400">
-                    No commitment. We&apos;ll never share your details.
+                <label className="block">
+                  <Label>
+                    What are you running today?
+                    <Optional />
+                  </Label>
+                  <textarea
+                    rows={4}
+                    className={`${FIELD_CLASS} resize-none`}
+                    placeholder="e.g. JD Edwards at HQ, three entities on QuickBooks, one legacy Great Plains install we'd love to retire…"
+                    value={form.message}
+                    onChange={set("message")}
+                    disabled={submitting}
+                  />
+                </label>
+
+                {status === "error" && (
+                  <p
+                    role="alert"
+                    className="rounded-xl border border-red-400/30 bg-red-500/15 px-3.5 py-3 text-sm text-red-200"
+                  >
+                    {errorMsg}
                   </p>
-                </form>
-              </>
-            )}
-          </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="h-14 w-full cursor-pointer rounded-full bg-lime-accent font-serif text-lg font-semibold text-forest-900 shadow-[0_0_40px_rgba(212,245,122,0.3)] transition-colors hover:bg-[#E3FA9A] disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {submitting ? "Sending…" : "Send request"}
+                </button>
+
+                <p className="text-center text-[13px] text-white/55">
+                  No commitment. We&apos;ll never share your details.
+                </p>
+              </form>
+            </>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
