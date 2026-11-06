@@ -14,6 +14,15 @@
   --color-primary-green-600: #468358; /* THIS IS THE DEFAULT COLOR */
   --color-primary-green-700: #356341;
 
+  /* FOREST — deep greens + mint accent for the home hero and dark nav */
+  --color-forest-950: #0e2016;
+  --color-forest-900: #132b1d;
+  --color-forest-800: #1f4430;
+  --color-forest-ink: #16261c;
+  --color-mint-200: #b7dcbf;
+  --color-lime-accent: #d4f57a; /* highlight only: glows, gradient text, chips on dark */
+  --color-sand-line: #e6e3d8; /* card borders on cream */
+
   --color-dark-background: #0b1a2e;
 
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
@@ -66,3 +75,72 @@ body {
   }
 }
 
+
+/* Home page: expanding rings around the Emulsion node in the
+   "many systems to one" diagram. */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.8s ease-out infinite;
+}
+
+/* Dashed line that appears to flow left-to-right between diagram columns. */
+@keyframes flow-dash {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 0;
+  }
+}
+
+.flow-wire {
+  background-image: linear-gradient(90deg, rgba(212, 245, 122, 0.9) 50%, transparent 50%);
+  background-size: 12px 2px;
+  animation: flow-dash 1.2s linear infinite;
+}
+
+/* Same flowing line in brand green, for light backgrounds. */
+.flow-wire-green {
+  background-image: linear-gradient(90deg, #468358 50%, transparent 50%);
+  background-size: 12px 2px;
+  animation: flow-dash 1.2s linear infinite;
+}
+
+/* Lime-to-mint gradient text used for emphasis on dark sections. */
+.text-gradient-lime {
+  background-image: linear-gradient(90deg, #b7dcbf, #d4f57a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-ring,
+  .flow-wire,
+  .flow-wire-green {
+    animation: none;
+  }
+}
+
+/* Footer: oversized Emulsion wordmark, drawn by masking a lime-to-clear
+   gradient with the logo so it fades into the background. */
+.footer-wordmark {
+  background-image: linear-gradient(
+    180deg,
+    rgba(212, 245, 122, 0.42) 0%,
+    rgba(183, 220, 191, 0.16) 45%,
+    rgba(183, 220, 191, 0) 80%
+  );
+  -webkit-mask: url(/emulsion_logo_dark_no_footer.png) center top / 100% auto no-repeat;
+  mask: url(/emulsion_logo_dark_no_footer.png) center top / 100% auto no-repeat;
+}

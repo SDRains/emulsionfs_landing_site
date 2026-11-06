@@ -26,9 +26,9 @@ export default function Product() {
             <main>
                 <ProductHero />
                 <ProductConnectors />
+                <ProductFeatures />
                 <ProductProcess />
                 <ProductRepository />
-                <ProductFeatures />
                 <ProductCta />
             </main>
             <Footer />

@@ -14,7 +14,7 @@ const STATS = [
     value: "$284.2M",
     sub: (
       <>
-        <span className="font-medium text-emerald-600">▲ 8.4%</span> vs. last
+        <span className="font-medium text-primary-green-700">▲ 8.4%</span> vs. last
         year
       </>
     ),
@@ -50,25 +50,25 @@ const ROWS = [
     status: "Archived",
     revenue: "$29.3M",
   },
-  {
-    entity: "Coastal Water Inc.",
-    source: "QuickBooks",
-    status: "Archived",
-    revenue: "$65.1M",
-  },
+  // {
+  //   entity: "Coastal Water Inc.",
+  //   source: "QuickBooks",
+  //   status: "Archived",
+  //   revenue: "$65.1M",
+  // },
 ];
 
 const COLS = "grid grid-cols-[2fr_1.5fr_1fr_1fr]";
 
 export default function DashboardMockup() {
   return (
-    <div className="overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-[0_30px_60px_-12px_rgba(10,30,18,0.35)] ring-1 ring-forest-900/10">
       {/* Browser chrome */}
       <div className="flex items-center border-b border-slate-100 bg-slate-50 px-4 py-3">
         <div className="hidden sm:flex gap-1.5">
-          <span className="h-3 w-3 rounded-full bg-red-600" />
-          <span className="h-3 w-3 rounded-full bg-yellow-400" />
-          <span className="h-3 w-3 rounded-full bg-blue-400" />
+          <span className="h-3 w-3 rounded-full bg-[#D5DAD2]" />
+          <span className="h-3 w-3 rounded-full bg-[#D5DAD2]" />
+          <span className="h-3 w-3 rounded-full bg-[#D5DAD2]" />
         </div>
         <div className="mx-auto rounded-md bg-white px-3 py-1 font-mono text-xs text-slate-400 ring-1 ring-slate-200 min-w-48 text-center">
           app.emulsionfs.com
@@ -82,14 +82,14 @@ export default function DashboardMockup() {
       <div className="flex text-left">
         {/* Sidebar */}
         <aside className="hidden w-52 shrink-0 border-r border-slate-100 p-2 md:block">
-          <nav className="flex flex-col gap-1 text-sm">s
+          <nav className="flex flex-col gap-1 text-sm">
             {NAV.map((item, i) => (
               <span
                 key={item}
                 className={`cursor-pointer hover:bg-neutral-50 px-3 py-2
                 ${
                     i === 0
-                        ? "rounded-md bg-slate-100 font-semibold text-[#0f2038]"
+                        ? "rounded-md bg-primary-green-600/10 font-semibold text-primary-green-700"
                         : "text-slate-500"
                 }`}
               >
@@ -103,11 +103,11 @@ export default function DashboardMockup() {
         <div className="min-w-0 flex-1 p-5 sm:p-6">
           {/* Header */}
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-lg font-bold text-[#0f2038]">
+            <h3 className="text-lg font-bold text-forest-ink">
               Portfolio overview
             </h3>
-            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 font-mono text-[10px] text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary-green-600/10 px-3 py-1 font-mono text-[10px] text-primary-green-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary-green-600/100" />
               12 ENTITIES · ALL SYNCED
             </span>
           </div>
@@ -122,7 +122,7 @@ export default function DashboardMockup() {
                 <p className="font-mono text-[10px] tracking-wider text-slate-400">
                   {s.label}
                 </p>
-                <p className="mt-2 text-lg font-bold text-[#0f2038]">
+                <p className="mt-2 text-lg font-bold text-forest-ink">
                   {s.value}
                 </p>
                 <p className="mt-1 text-xs text-slate-500">{s.sub}</p>
@@ -147,27 +147,27 @@ export default function DashboardMockup() {
                     key={r.entity}
                     className={`${COLS} items-center py-3 text-sm cursor-pointer hover:bg-neutral-50`}
                   >
-                    <span className="font-semibold text-[#0f2038] text-[12px]">
+                    <span className="font-semibold text-forest-ink text-[12px]">
                       {r.entity}
                     </span>
                     <span className="text-slate-500 text-[12px]">{r.source}</span>
                     <span className="inline-flex items-center gap-1.5 text-[12px]">
                       <span
                         className={`h-1.5 w-1.5 rounded-full ${
-                          r.status === "Live" ? "bg-emerald-500" : "bg-slate-400"
+                          r.status === "Live" ? "bg-primary-green-600/100" : "bg-slate-400"
                         }`}
                       />
                       <span
                         className={
                           r.status === "Live"
-                            ? "text-emerald-700"
+                            ? "text-primary-green-700"
                             : "text-slate-500"
                         }
                       >
                         {r.status}
                       </span>
                     </span>
-                    <span className="text-right font-semibold text-[#0f2038]">
+                    <span className="text-right font-semibold text-forest-ink">
                       {r.revenue}
                     </span>
                   </div>

@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 const COLUMNS = [
   {
-    heading: "PLATFORM",
+    heading: "Platform",
     links: [
       { label: "Overview", href: "/product" },
       { label: "Live connections", href: "/integrations" },
@@ -10,7 +12,7 @@ const COLUMNS = [
     ],
   },
   {
-    heading: "SOLUTIONS",
+    heading: "Solutions",
     links: [
       { label: "Private equity", href: "#" },
       { label: "Utility roll-ups", href: "#" },
@@ -19,79 +21,95 @@ const COLUMNS = [
     ],
   },
   {
-    heading: "COMPANY",
+    heading: "Company",
     links: [
       { label: "About", href: "#" },
       { label: "Security", href: "/security" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact", href: "/contact" },
-      { label: "Book a demo", href: "/contact?intent=demo" },
     ],
   },
 ];
 
 const LEGAL = [
-  { label: "Privacy", href: "#" },
-  { label: "Terms", href: "#" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ];
+
+const LINK = "text-white/70 transition-colors hover:text-white";
 
 function FooterColumn({ heading, links }) {
   return (
-    <div className='flex justify-start'>
-      <div className=''>
-        <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#a99d82]">
-          {heading}
-        </h3>
-        <ul className="mt-6 space-y-3.5">
-          {links.map((l) => (
-              <li key={l.label}>
-                <a
-                    href={l.href}
-                    className="text-base text-slate-300 transition-colors hover:text-white"
-                >
-                  {l.label}
-                </a>
-              </li>
-          ))}
-        </ul>
-      </div>
+    <div>
+      <h3 className="text-sm font-semibold text-mint-200">{heading}</h3>
+      <ul className="mt-5 flex flex-col gap-3.5 text-[15px]">
+        {links.map((l) => (
+          <li key={l.label}>
+            <Link href={l.href} className={LINK}>
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-background text-white">
-      <div className="mx-auto max-w-screen-2xl px-6 lg:px-10">
-        {/* Main */}
-        <div className="grid gap-12 border-t border-white/10 pb-14 pt-16 sm:grid-cols-2">
+    <footer className="relative overflow-hidden border-t border-white/[0.08] bg-forest-950 text-white">
+      {/* Soft green glow rising from the bottom edge */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[380px] left-1/2 h-[640px] w-[1300px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(70,131,88,0.4),rgba(70,131,88,0)_75%)]"
+      />
+
+      <div className="relative mx-auto max-w-[1240px] px-6 pt-20 lg:pt-22">
+        <div className="grid gap-x-18 gap-y-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.9fr)]">
           {/* Brand */}
           <div>
-            <img src='/emulsion_logo_dark.png' className='h-16 w-auto object-cover' alt='Emulsion' />
-            <p className="mt-6 max-w-xs text-base leading-7 text-slate-400">
+            <Link href="/" aria-label="Emulsion home" className="inline-block">
+              <img src="/emulsion_logo_dark_no_footer.png" alt="Emulsion" className="h-11 w-auto" />
+            </Link>
+            <p className="mt-5 max-w-[340px] font-serif text-[19px] leading-relaxed text-white/80">
               One searchable, permanent source of financial truth for
               organizations that grew through acquisition.
             </p>
+            <div className="mt-7 flex flex-wrap gap-2.5 font-serif">
+              <Link
+                href="/contact?intent=demo"
+                className="inline-flex h-[46px] items-center rounded-full bg-primary-cream px-[22px] text-base font-semibold text-forest-900 transition-colors hover:bg-white"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/contact?intent=sales"
+                className="inline-flex h-[46px] items-center rounded-full border border-white/25 px-5 text-base font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                Talk to sales
+              </Link>
+            </div>
           </div>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+          {/* Link columns */}
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {COLUMNS.map((c) => (
-                <FooterColumn key={c.heading} {...c} />
+              <FooterColumn key={c.heading} {...c} />
             ))}
-          </div>
+          </nav>
         </div>
 
+        {/* Oversized wordmark, cropped by the bottom bar */}
+        <div aria-hidden="true" className="footer-wordmark -mb-10 mt-18 aspect-[1804/430] w-full" />
+
         {/* Bottom bar */}
-        <div className="flex flex-col gap-4 border-t border-white/10 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-white/10 pt-5 pb-7 text-sm text-white/60">
           <p>© 2026 Emulsion Financial Solutions</p>
-          <div className="flex items-center gap-8">
+          <div className="flex gap-7">
             {LEGAL.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className="text-slate-400 transition-colors hover:text-white"
-              >
+              <Link key={l.label} href={l.href} className={LINK}>
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

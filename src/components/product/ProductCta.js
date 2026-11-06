@@ -1,36 +1,47 @@
+import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
+
 export default function ProductCta() {
   return (
-    <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10">
-        <h2 className="font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl lg:text-6xl">
-          Tell us what you&apos;re running.
-          <br />
-          <span className="italic text-primary-green-600">
-            We&apos;ll map the way out.
-          </span>
+    <section
+      aria-labelledby="product-cta-heading"
+      className="relative overflow-hidden bg-forest-950 px-6 py-28 text-center text-white lg:py-36"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[420px] left-1/2 h-[800px] w-[1400px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,245,122,0.35),rgba(70,131,88,0.25)_45%,transparent_75%)]"
+      />
+      <div className="relative mx-auto max-w-[860px]">
+        <h2
+          id="product-cta-heading"
+          className="font-new-serif text-5xl font-normal leading-[1.04] tracking-tight sm:text-6xl lg:text-[68px]"
+        >
+          Tell us what you&apos;re running.{" "}
+          <span className="text-gradient-lime italic">We&apos;ll map the way out.</span>
         </h2>
-
-        <p className="mx-auto mt-6 max-w-xl text-lg text-slate-500">
-          A 30-minute call with a consultant — bring your list of systems.
+        <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/70">
+          A 30-minute call with a consultant. Bring your list of systems.
         </p>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
+        <div className="mt-10 flex flex-wrap justify-center gap-3 font-serif">
+          <Link
             href="/contact?intent=demo"
-            className="rounded-full bg-primary-green-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-green-500"
+            className="inline-flex h-14 items-center rounded-full bg-primary-cream px-[30px] text-lg font-semibold text-forest-900 shadow-[0_0_40px_rgba(212,245,122,0.35)] transition-colors hover:bg-white"
           >
             Book a demo
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact?intent=sales"
-            className="rounded-full border border-primary-green-600/40 px-7 py-3.5 text-base font-semibold text-primary-green-600 transition-colors hover:bg-primary-green-600/10"
+            className="group inline-flex h-14 items-center gap-2.5 rounded-full border border-white/30 px-7 text-lg font-semibold text-white transition-colors hover:bg-white/10"
           >
             Talk to sales
-          </a>
+            <ArrowRightIcon
+              className="size-[18px] transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
         </div>
-
-        <p className="mt-10 font-mono text-xs font-semibold tracking-[0.15em] text-slate-400">
-          30-MIN WALKTHROUGH · YOUR SYSTEMS, LIVE · NO COMMITMENT
+        <p className="mt-7 text-sm text-white/60">
+          30-minute walkthrough · Your systems, live · No commitment
         </p>
       </div>
     </section>

@@ -1,80 +1,81 @@
-import {CheckIcon} from "lucide-react";
+import { CheckIcon } from "lucide-react";
 
 const CARDS = [
   {
-    badge: { type: "live", label: "LIVE INGESTION" },
+    label: "Live ingestion",
+    accent: "bg-lime-accent",
+    dot: "rounded-full",
     title: "Continuous, by API.",
-    body: "Scheduled syncs pull GL activity, sub-ledgers, and dimensions from your active platforms. Reporting is always current — no exports, no re-keying.",
+    body: "Scheduled syncs pull GL activity, sub-ledgers and dimensions from your active platforms. Reporting is always current, with no exports and no re-keying.",
     points: [
       "Field-level mapping to your consolidated chart",
       "Sync health monitored per entity",
-      "Read-only — we never write to your systems",
+      "Read-only: we never write to your systems",
     ],
   },
   {
-    badge: { type: "legacy", label: "LEGACY EXPORT" },
+    label: "Legacy export",
+    accent: "bg-mint-200",
+    dot: "rounded-[2px]",
     title: "Side by side with your team.",
-    body: "Our engineers pair with the people who run the legacy system to extract every table, document, and attachment — then validate record by record against source before anything is retired.",
+    body: "Our engineers pair with the people who run the legacy system to extract every table, document and attachment, then validate record by record against source before anything is retired.",
     points: [
-      "Full extraction — transactions, masters, attachments",
-      "Record-by-record validation, parallel-run before cutover",
-      "Into a secure repository — local or hosted",
+      "Full extraction: transactions, masters, attachments",
+      "Record-by-record validation, parallel run before cutover",
+      "Into a secure repository, local or hosted",
     ],
   },
 ];
 
-function Badge({ type, label }) {
-  if (type === "live") {
-    return (
-      <span className="inline-flex items-center gap-2 rounded-full bg-primary-green-600/10 px-3 py-1 font-mono text-[11px] font-semibold tracking-wider text-primary-green-500 brightness-125">
-        <span className="h-1.5 w-1.5 rounded-full bg-primary-green-500 brightness-125" />
-        {label}
-      </span>
-    );
-  }
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-1 font-mono text-[11px] font-semibold tracking-wider text-slate-300">
-      <span className="h-1.5 w-1.5 rounded-[2px] bg-slate-400" />
-      {label}
-    </span>
-  );
-}
-
 export default function IntegrationsIngestion() {
   return (
-    <section className="bg-[#0b1a2e] text-white">
-      <div className="mx-auto max-w-6xl px-6 py-28 lg:px-10">
-        <h2 className="text-center font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-          <span className="text-primary-cream">Ingestion is a partnership,</span>
-          <br />
-          <span className="italic text-primary-green-600">not a file drop.</span>
-        </h2>
+    <section
+      aria-labelledby="ingestion-heading"
+      className="relative overflow-hidden bg-forest-950 px-6 py-24 text-white lg:py-32"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-1/2 h-[700px] w-[1200px] -translate-x-1/2 -translate-y-[45%] bg-[radial-gradient(closest-side,rgba(70,131,88,0.5),transparent)]"
+      />
+      <div className="relative mx-auto max-w-[1240px]">
+        <div className="mx-auto max-w-[780px] text-center">
+          <h2
+            id="ingestion-heading"
+            className="font-new-serif text-4xl font-normal leading-[1.06] tracking-tight sm:text-5xl lg:text-[56px]"
+          >
+            Ingestion is a partnership,{" "}
+            <span className="italic text-mint-200">not a file drop.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-[640px] text-[17px] leading-relaxed text-white/70">
+            Live systems stream in by API. For legacy systems, our engineers work
+            alongside the people who know where the data lives to get everything
+            out, validated and preserved.
+          </p>
+        </div>
 
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-slate-400">
-          Live systems stream in by API. For legacy systems, our engineers work
-          alongside your team — the people who know where the data lives — to get
-          everything out, validated, and preserved.
-        </p>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
           {CARDS.map((c) => (
             <div
-              key={c.title}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-8"
+              key={c.label}
+              className="rounded-[28px] border border-white/10 bg-white/5 p-9 transition-colors duration-300 hover:border-lime-accent/45 hover:bg-white/[0.07]"
             >
-              <Badge {...c.badge} />
-              <h3 className="mt-6 font-serif text-2xl font-semibold text-primary-cream">
-                {c.title}
-              </h3>
-              <p className="mt-4 text-base leading-7 text-slate-400">{c.body}</p>
-              <ul className="mt-6 space-y-2.5">
+              <span
+                className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[13px] font-semibold text-forest-900 ${c.accent}`}
+              >
+                <span className={`size-1.5 bg-forest-900 ${c.dot}`} />
+                {c.label}
+              </span>
+              <h3 className="mt-6 font-new-serif text-[32px] font-normal">{c.title}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-white/70">{c.body}</p>
+              <ul className="mt-6 flex flex-col gap-3 text-[15px]">
                 {c.points.map((p) => (
-                  <li
-                    key={p}
-                    className="flex items-start gap-2.5 text-sm text-slate-300"
-                  >
-                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary-green-500" />
-                    <span>{p}</span>
+                  <li key={p} className="flex items-center gap-2.5">
+                    <span
+                      className={`flex size-[22px] flex-none items-center justify-center rounded-full text-forest-900 ${c.accent}`}
+                    >
+                      <CheckIcon className="size-3" strokeWidth={3.2} aria-hidden="true" />
+                    </span>
+                    {p}
                   </li>
                 ))}
               </ul>

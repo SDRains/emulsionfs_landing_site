@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PricingHero from "@/components/pricing/PricingHero";
 import PricingServices from "@/components/pricing/PricingServices";
 import PricingSteps from "@/components/pricing/PricingSteps";
+import PricingScope from "@/components/pricing/PricingScope";
 import {analytics} from "@/lib/analytics";
 import {useEffect} from "react";
 
@@ -24,6 +25,7 @@ export default function Pricing() {
                 <PricingHero />
                 <PricingServices />
                 <PricingSteps />
+                <PricingScope />
             </main>
             <Footer />
         </div>

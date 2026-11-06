@@ -1,35 +1,47 @@
+import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
+
 export default function IntegrationsCta() {
   return (
-    <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10">
-        <h2 className="font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl lg:text-6xl">
-          Every system in.
-          <br />
-          <span className="italic text-primary-green-600">Every report out.</span>
+    <section
+      aria-labelledby="integrations-cta-heading"
+      className="relative overflow-hidden bg-forest-950 px-6 py-28 text-center text-white lg:py-36"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[420px] left-1/2 h-[800px] w-[1400px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(212,245,122,0.35),rgba(70,131,88,0.25)_45%,transparent_75%)]"
+      />
+      <div className="relative mx-auto max-w-[860px]">
+        <h2
+          id="integrations-cta-heading"
+          className="font-new-serif text-5xl font-normal leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+        >
+          Every system in.{" "}
+          <span className="text-gradient-lime italic">Every report out.</span>
         </h2>
-
-        <p className="mx-auto mt-6 max-w-xl text-lg text-slate-500">
-          Bring your list of platforms and the reports you owe — we&apos;ll map
-          both.
+        <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/70">
+          Bring your list of platforms and the reports you owe. We&apos;ll map both.
         </p>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
+        <div className="mt-10 flex flex-wrap justify-center gap-3 font-serif">
+          <Link
             href="/contact?intent=demo"
-            className="rounded-full bg-dark-blue px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#152a45]"
+            className="inline-flex h-14 items-center rounded-full bg-primary-cream px-[30px] text-lg font-semibold text-forest-900 shadow-[0_0_40px_rgba(212,245,122,0.35)] transition-colors hover:bg-white"
           >
             Book a demo
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact?intent=sales"
-            className="rounded-full border border-slate-300 px-7 py-3.5 text-base font-semibold text-dark-blue transition-colors hover:bg-black/[0.03]"
+            className="group inline-flex h-14 items-center gap-2.5 rounded-full border border-white/30 px-7 text-lg font-semibold text-white transition-colors hover:bg-white/10"
           >
             Talk to sales
-          </a>
+            <ArrowRightIcon
+              className="size-[18px] transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
         </div>
-
-        <p className="mt-10 font-mono text-xs font-semibold tracking-[0.15em] text-slate-400">
-          30-MIN WALKTHROUGH · YOUR SYSTEMS, LIVE · NO COMMITMENT
+        <p className="mt-7 text-sm text-white/60">
+          30-minute walkthrough · Your systems, live · No commitment
         </p>
       </div>
     </section>

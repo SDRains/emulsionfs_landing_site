@@ -1,97 +1,116 @@
-import { MonitorIcon, CloudIcon, CheckIcon } from "lucide-react";
+import { CheckIcon, CloudIcon, MonitorIcon } from "lucide-react";
 
 const OPTIONS = [
   {
     icon: MonitorIcon,
-    title: "Local Deployment",
-    body: "Your historical repository runs on your own infrastructure, behind your firewall. Full control, full auditability — Emulsion connects to it the same way it connects to everything else.",
+    title: "Local deployment",
+    body: "Your historical repository runs on your own infrastructure, behind your firewall. Emulsion connects to it the same way it connects to everything else.",
     points: [
       "Runs in your data center or private cloud",
       "Meets strict data-residency requirements",
       "Your team holds the keys",
     ],
+    dark: false,
   },
   {
     icon: CloudIcon,
     title: "Hosted by Emulsion",
-    body: "A dedicated, encrypted database — never shared, never pooled. We manage uptime, backups, and security so your team can just work with the data.",
+    body: "A dedicated, encrypted database, never shared or pooled. We manage uptime, backups and security so your team can just work with the data.",
     points: [
       "Dedicated database per customer",
       "AES-256 at rest, TLS in transit",
       "SOC 2 Type II audited",
     ],
+    dark: true,
   },
 ];
 
-const TAGS = [
-  "RECORD-BY-RECORD VALIDATION",
-  "PARALLEL-RUN BEFORE CUTOVER",
-  "AUDIT-READY EXPORTS",
-  "ZERO DOWNTIME FOR YOUR TEAM",
+const GUARANTEES = [
+  "Record-by-record validation",
+  "Parallel run before cutover",
+  "Audit-ready exports",
+  "Zero downtime for your team",
 ];
+
+function OptionCard({ icon: Icon, title, body, points, dark }) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[28px] p-9 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(19,43,29,0.35)] ${
+        dark ? "bg-forest-900 text-white" : "border border-sand-line bg-white"
+      }`}
+    >
+      {dark && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-36 -right-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(212,245,122,0.22),transparent)]"
+        />
+      )}
+      <div className="relative">
+        <div className="flex items-center gap-3.5">
+          <span
+            className={`flex size-12 items-center justify-center rounded-[14px] ${
+              dark ? "bg-lime-accent/15 text-lime-accent" : "bg-[#E3F0E0] text-primary-green-700"
+            }`}
+          >
+            <Icon className="size-6" strokeWidth={2} aria-hidden="true" />
+          </span>
+          <h3 className="font-new-serif text-[28px] font-normal">{title}</h3>
+        </div>
+        <p className={`mt-4 text-[15px] leading-relaxed ${dark ? "text-white/75" : "text-forest-ink/75"}`}>{body}</p>
+        <ul className="mt-6 flex flex-col gap-3 text-[15px]">
+          {points.map((p) => (
+            <li key={p} className="flex items-center gap-2.5">
+              <span
+                className={`flex size-[22px] flex-none items-center justify-center rounded-full ${
+                  dark ? "bg-lime-accent text-forest-900" : "bg-[#DDEEDB] text-primary-green-700"
+                }`}
+              >
+                <CheckIcon className="size-3" strokeWidth={3.2} aria-hidden="true" />
+              </span>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default function ProductRepository() {
   return (
-    <section className="bg-primary-cream text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
-        <h2 className="mx-auto max-w-3xl text-center font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl">
-          Off legacy systems.
-          <br />
-          <span className="italic text-primary-green-600">
-            Into a repository you control.
-          </span>
-        </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-slate-500">
-          We handle the extraction, validation, and cutover — then your
-          historical data lives in a secure database repository, deployed the way
-          your policies require.
-        </p>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {OPTIONS.map((o) => {
-            const Icon = o.icon;
-            return (
-              <div
-                key={o.title}
-                className="rounded-2xl border border-black/[0.05] bg-white p-8 shadow-sm sm:p-10"
-              >
-                <div className='flex items-center space-x-4'>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-green-600/10 ring-1 ring-primary-green-600/40">
-                    <Icon className="h-6 w-6 text-primary-green-600" />
-                  </div>
-                  <h3 className="font-serif text-2xl font-semibold text-dark-blue">
-                    {o.title}
-                  </h3>
-                </div>
-                <p className="mt-4 text-base leading-7 text-slate-500">
-                  {o.body}
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {o.points.map((p) => (
-                    <li key={p} className="flex items-start gap-3">
-                      <CheckIcon
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-green-600"
-                        strokeWidth={3}
-                      />
-                      <span className="text-slate-600">{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+    <section aria-labelledby="repository-heading" className="bg-primary-cream px-6 pb-24 text-forest-ink lg:pb-32">
+      <div className="mx-auto max-w-[1240px]">
+        <div className="mx-auto max-w-[780px] text-center">
+          <h2
+            id="repository-heading"
+            className="font-new-serif text-4xl font-normal leading-[1.06] tracking-tight sm:text-5xl lg:text-[56px]"
+          >
+            Off legacy systems.{" "}
+            <span className="italic text-primary-green-700">Into a repository you control.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-[620px] text-[17px] leading-relaxed text-forest-ink/75">
+            We handle the extraction, validation and cutover. Your historical data
+            then lives in a secure database, deployed the way your policies require.
+          </p>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {TAGS.map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-slate-300 px-4 py-2 font-mono text-xs font-semibold tracking-wider text-slate-500"
-            >
-              {t}
-            </span>
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {OPTIONS.map((o) => (
+            <OptionCard key={o.title} {...o} />
           ))}
         </div>
+
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {GUARANTEES.map((g) => (
+            <li
+              key={g}
+              className="flex items-center gap-3 rounded-[18px] bg-linear-140 from-[#DDF0DA] to-[#EAF7BF] px-5 py-[18px] text-[15px] font-semibold"
+            >
+              <CheckIcon className="size-[18px] flex-none text-primary-green-700" strokeWidth={2.6} aria-hidden="true" />
+              {g}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

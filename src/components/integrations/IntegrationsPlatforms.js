@@ -1,89 +1,108 @@
-const PLATFORMS = [
-  { title: "JD Edwards", sub: "EnterpriseOne & World", status: "live" },
-  { title: "Sage Intacct", sub: "Dimensional GL, multi-entity", status: "live" },
-  { title: "QuickBooks", sub: "Online & Desktop", status: "live" },
-  { title: "NetSuite", sub: "SuiteAnalytics connect", status: "live" },
-  { title: "Great Plains", sub: "Dynamics GP, all versions", status: "extract" },
-  { title: "AS/400-era systems", sub: "Green-screen & flat-file", status: "extract" },
-  { title: "Custom databases", sub: "SQL, Access, homegrown GLs", status: "extract" },
-  { title: "Epicor", sub: "", status: "coming" },
-  { title: "Workday Financial Management", sub: "", status: "coming" },
-  { title: "Microsoft Dynamics GP", sub: "", status: "coming" },
-  { title: "Infor", sub: "", status: "coming" },
+const LIVE = [
+  { title: "JD Edwards", sub: "EnterpriseOne & World" },
+  { title: "Sage Intacct", sub: "Dimensional GL, multi-entity" },
+  { title: "QuickBooks", sub: "Online & Desktop" },
+  { title: "NetSuite", sub: "SuiteAnalytics Connect" },
 ];
 
-function StatusBadge({ type }) {
-  if (type === "live") {
-    return (
-      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-emerald-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        LIVE
-      </span>
-    );
-  } else if (type === "coming") {
-    return (
-      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-cyan-50 border border-purple-200 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-purple-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-        IN DEVELOPMENT
-      </span>
-    );
-  }
+const EXTRACT = [
+  { title: "Great Plains", sub: "Dynamics GP, all versions" },
+  { title: "AS/400-era systems", sub: "Green-screen & flat-file" },
+  { title: "Custom databases", sub: "SQL, Access, homegrown GLs" },
+];
+
+const COMING = ["Epicor", "Workday Financial Management", "Microsoft Dynamics GP", "Infor"];
+
+const LIFT =
+  "transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(19,43,29,0.35)]";
+
+function GroupHeading({ marker, children }) {
   return (
-    <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-slate-100 border border-slate-200 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-slate-500">
-      <span className="h-1.5 w-1.5 rounded-[2px] bg-slate-500" />
-      EXTRACT
-    </span>
+    <h3 className="mb-4 flex items-center gap-2.5 text-[15px] font-semibold">
+      {marker}
+      {children}
+    </h3>
   );
 }
 
-function PlatformCard({ title, sub, status }) {
+function PlatformCard({ title, sub, className }) {
   return (
-    <div className="rounded-xl bg-primary-cream p-5">
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="text-base font-bold text-dark-blue">{title}</h3>
-        <StatusBadge type={status} />
-      </div>
-      <p className="mt-2 text-sm text-slate-500">{sub}</p>
-    </div>
+    <li className={`rounded-[20px] p-[22px] ${LIFT} ${className}`}>
+      <p className="text-[17px] font-semibold">{title}</p>
+      <p className="mt-1.5 text-sm text-forest-ink/70">{sub}</p>
+    </li>
   );
 }
 
 export default function IntegrationsPlatforms() {
   return (
-    <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="font-serif text-4xl font-semibold leading-tight text-dark-blue sm:text-5xl">
-            The platforms we work with.
+    <section
+      id="platforms"
+      aria-labelledby="platforms-heading"
+      className="scroll-mt-28 bg-primary-cream px-6 pt-6 pb-24 text-forest-ink lg:pb-32"
+    >
+      <div className="mx-auto max-w-[1240px]">
+        <div className="grid items-end gap-x-18 gap-y-6 lg:grid-cols-2">
+          <h2
+            id="platforms-heading"
+            className="font-new-serif text-4xl font-normal leading-[1.06] tracking-tight sm:text-5xl lg:text-[56px]"
+          >
+            The platforms <span className="italic text-primary-green-700">we work with.</span>
           </h2>
-
-          <div className="flex items-center gap-x-6 font-mono text-xs font-semibold tracking-wider">
-            <span className="inline-flex items-center gap-2 text-emerald-600">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              LIVE
-            </span>
-            <span className="inline-flex items-center gap-2 text-purple-600">
-              <span className="h-2 w-2 rounded-full bg-purple-500" />
-              IN DEVELOPMENT
-            </span>
-            <span className="inline-flex items-center gap-2 text-slate-500">
-              <span className="h-2 w-2 rounded-[2px] bg-slate-500" />
-              FULL EXTRACTION
-            </span>
-          </div>
+          <p className="text-[17px] leading-relaxed text-forest-ink/75">
+            Active platforms connect live by API. Older and on-premise systems are
+            fully extracted. And if yours isn&apos;t listed, we build the connector
+            during onboarding.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PLATFORMS.map((p) => (
-            <PlatformCard key={p.title} {...p} />
-          ))}
+        <div className="mt-14 flex flex-col gap-10">
+          <div>
+            <GroupHeading
+              marker={<span className="size-2.5 rounded-full bg-primary-green-600 shadow-[0_0_0_4px_rgba(70,131,88,0.18)]" />}
+            >
+              Live connections
+            </GroupHeading>
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {LIVE.map((p) => (
+                <PlatformCard key={p.title} {...p} className="border border-sand-line bg-white" />
+              ))}
+            </ul>
+          </div>
 
-          {/* Custom-connector CTA card */}
-          <div className="rounded-xl border-2 border-dashed border-dark-blue/20 p-5">
-            <h3 className="text-base font-bold text-black">Something else?</h3>
-            <p className="mt-2 text-sm text-slate-500">
-              Custom connectors built during onboarding — spreadsheets included.
-            </p>
+          <div>
+            <GroupHeading marker={<span className="size-2.5 rounded-[3px] bg-[#7C877E]" />}>
+              Full extraction
+            </GroupHeading>
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {EXTRACT.map((p) => (
+                <PlatformCard key={p.title} {...p} className="border border-[#E2DED0] bg-[#EFECE1]" />
+              ))}
+              <li
+                className={`rounded-[20px] border-[1.5px] border-dashed border-[#9CC48E] bg-linear-140 from-[#DDF0DA] to-[#EAF7BF] p-[22px] ${LIFT}`}
+              >
+                <p className="text-[17px] font-semibold text-primary-green-700">Something else?</p>
+                <p className="mt-1.5 text-sm text-forest-ink/80">
+                  Custom connectors built during onboarding, spreadsheets included.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <GroupHeading marker={<span className="size-2.5 rounded-full border-2 border-[#8FB33A]" />}>
+              In development
+            </GroupHeading>
+            <ul className="flex flex-wrap gap-2.5">
+              {COMING.map((c) => (
+                <li
+                  key={c}
+                  className="rounded-full border border-dashed border-[#B9C3B3] px-[18px] py-2.5 text-[15px] font-medium text-forest-ink/80"
+                >
+                  {c}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
