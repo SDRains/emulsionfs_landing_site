@@ -108,7 +108,7 @@ export default function DashboardMockup() {
             </h3>
             <span className="inline-flex items-center gap-2 rounded-full bg-primary-green-600/10 px-3 py-1 font-mono text-[10px] text-primary-green-700">
               <span className="h-1.5 w-1.5 rounded-full bg-primary-green-600/100" />
-              12 ENTITIES · ALL SYNCED
+              12 ENTITIES CONNECTED
             </span>
           </div>
 

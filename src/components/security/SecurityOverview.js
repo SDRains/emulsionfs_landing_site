@@ -1,205 +1,172 @@
-const TAN = "#cdc8b6";
-const LIGHT = "#ece9dd";
+import { BellIcon, CheckIcon, LockIcon, XIcon } from "lucide-react";
 
-const GRID_BG = {
-  backgroundImage:
-    "linear-gradient(rgba(70,131,88,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(70,131,88,0.10) 1px, transparent 1px)",
-  backgroundSize: "22px 22px",
-};
+const ENTITIES = ["HQ", "East", "West", "Canada"];
 
-function Figure({ caption, children }) {
-  return (
-    <div>
-      <div
-        className="relative aspect-[4/3] border border-dashed border-slate-300"
-        style={GRID_BG}
-      >
-        <div className="absolute inset-6">{children}</div>
-      </div>
-      <figcaption className="mt-4 font-mono text-[11px] tracking-wider text-slate-400">
-        {caption}
-      </figcaption>
-    </div>
-  );
-}
-
-/* ---- Illustrations ---- */
-
-function BoundaryFig() {
-  return (
-    <div className="relative h-full w-full border-2 border-dark-background">
-      <span className="absolute left-3 top-2 font-mono text-[10px] tracking-wider text-slate-600">
-        YOUR PERIMETER
-      </span>
-      <div className="absolute bottom-3 left-3 flex items-end gap-2">
-        <span className="h-11 w-11 bg-primary-green-700" />
-        <span className="h-6 w-6 border border-slate-400 bg-white" />
-        <span className="h-6 w-6 border border-slate-400 bg-white" />
-      </div>
-    </div>
-  );
-}
-
-function IngestionFig() {
-  return (
-    <div className="flex h-full w-full items-center justify-center gap-3">
-      <div className="space-y-2">
-        <div className="h-4 w-16 rounded-sm border border-slate-400 bg-white" />
-        <div className="h-4 w-16 rounded-sm border border-slate-400 bg-white" />
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <span className="h-px w-14 bg-primary-green-600" />
-        <span className="font-mono text-[9px] tracking-wider text-primary-green-700">
-          READ ONLY
-        </span>
-      </div>
-      <span className="h-14 w-14 bg-primary-green-700" />
-    </div>
-  );
-}
-
-function MatrixFig() {
-  const cells = [
-    "g", "t", "g", "l", "l",
-    "g", "l", "t", "g", "l",
-    "t", "g", "t", "g", "l",
-  ];
-  const bg = (c) =>
-    c === "g" ? "#356341" : c === "t" ? TAN : LIGHT;
-  return (
-    <div className="flex h-full w-full items-center justify-center">
-      <div className="grid grid-cols-5 gap-1.5">
-        {cells.map((c, i) => (
-          <span key={i} className="h-5 w-5" style={{ background: bg(c) }} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ReconcileFig() {
-  return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3">
-      <div className="flex items-center gap-3">
-        <span className="h-12 w-24 rounded-sm border border-slate-400 bg-white" />
-        <span className="font-mono text-sm text-slate-400">=</span>
-        <span className="h-12 w-24 bg-primary-green-700" />
-      </div>
-      <span className="font-mono text-[9px] tracking-wider text-slate-400">
-        PARALLEL RUN UNTIL RECONCILED
-      </span>
-    </div>
-  );
-}
-
-function DocumentsFig() {
-  return (
-    <div className="flex h-full w-full items-center justify-center gap-4">
-      <div className="relative h-24 w-16 border border-dark-background bg-white">
-        <span className="absolute inset-x-2 bottom-2 h-1 bg-primary-green-700" />
-      </div>
-      <div className="h-24 w-16 border border-slate-400 bg-white" />
-      <div className="h-24 w-16 border border-slate-400 bg-white" />
-    </div>
-  );
-}
-
-/* ---- Rows ---- */
-
-const ROWS = [
-  {
-    number: "01",
-    title: "Where your data lives",
-    body: "You choose the boundary. Local deployment puts the repository inside your own infrastructure, behind your firewall, under your key management. Hosted puts it in a dedicated, encrypted database that belongs to your organization alone — never a shared schema, never pooled with another customer's records.",
-    extra: (
-      <div className="mt-6 flex flex-wrap gap-2">
-        {["DATA RESIDENCY", "DEDICATED DB", "AES-256"].map((t) => (
-          <span
-            key={t}
-            className="rounded-full border border-slate-300 px-3 py-1 font-mono text-[11px] tracking-wider text-slate-500"
-          >
-            {t}
-          </span>
-        ))}
-      </div>
-    ),
-    caption: "",
-    illustration: <BoundaryFig />,
-  },
-  {
-    number: "02",
-    title: "How we connect",
-    body: "Live systems are connected with read-only, least-privilege credentials over TLS. Emulsion has no write path into your ERPs — it cannot post a journal, adjust a balance, or delete a record. Legacy systems are extracted in supervised sessions alongside your team, then verified before anything is retired.",
-    caption: "",
-    illustration: <IngestionFig />,
-  },
-  {
-    number: "03",
-    title: "Who can see what",
-    body: "Permissions are scoped by entity and enforced at the query layer, not the interface. SAML single sign-on ties access to your directory, so removing someone there removes them here. Emulsion staff hold no standing access — support sessions are requested, approved, time-boxed, and logged.",
-    caption: "",
-    illustration: <MatrixFig />,
-  },
-  {
-    number: "04",
-    title: "Migration integrity",
-    body: "Retiring a system is the riskiest moment in this work, so it's the most controlled. Every record is reconciled against source, the old system runs in parallel until both agree, and the extraction report is yours to keep as audit evidence.",
-    caption: "",
-    illustration: <ReconcileFig />,
-  },
-  {
-    number: "05",
-    title: "Compliance & response",
-    body: "SOC 2 Type II audited annually, penetration tested by an independent firm, with encrypted backups and tested restores. Incidents are triaged on a documented runbook and customers are notified directly — no status-page-only disclosures.",
-    extra: (
-      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-primary-green-700">
-        <a href="#" className="hover:underline">
-          Security package &rarr;
-        </a>
-        <a href="#" className="hover:underline">
-          Subprocessors &rarr;
-        </a>
-        <a href="mailto:security@emulsionfs.com" className="hover:underline">
-          security@emulsionfs.com
-        </a>
-      </div>
-    ),
-    caption: "",
-    illustration: <DocumentsFig />,
-  },
+// Illustrative permission grid: which roles see which entities.
+const ACCESS = [
+  { role: "Controller", cells: ["full", "full", "full", "full"] },
+  { role: "AP, East", cells: ["none", "own", "none", "none"] },
+  { role: "Auditor", cells: ["view", "view", "none", "none"] },
 ];
 
-export default function SecurityOverview() {
-  return (
-    <section className="bg-white text-[#141414]">
-      <div className="mx-auto max-w-screen-2xl px-6 lg:px-10">
-        {ROWS.map((row, i) => (
-          <div
-            key={row.number}
-            className={`grid gap-10 py-16 lg:grid-cols-[1.4fr_1fr] lg:gap-16 ${
-              i > 0 ? "border-t border-slate-200" : ""
-            }`}
-          >
-            {/* Left: number + copy */}
-            <div className="flex gap-6">
-              <span className="w-6 shrink-0 pt-2 font-mono text-xs text-slate-400">
-                {row.number}
-              </span>
-              <div>
-                <h3 className="font-serif text-2xl font-semibold text-dark-background sm:text-3xl">
-                  {row.title}
-                </h3>
-                <p className="mt-4 max-w-lg text-base leading-7 text-slate-500">
-                  {row.body}
-                </p>
-                {row.extra}
-              </div>
-            </div>
+const CELL = {
+  full: "bg-primary-green-700",
+  own: "bg-primary-green-500",
+  view: "bg-lime-accent",
+  none: "bg-[#ECE9DD]",
+};
 
-            {/* Right: figure */}
-            <Figure caption={row.caption}>{row.illustration}</Figure>
+const card = "rounded-[28px] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(19,43,29,0.35)] sm:p-9";
+const cardTitle = "font-new-serif text-3xl font-normal";
+
+function AccessMatrix() {
+  return (
+    <div aria-hidden="true" className="rounded-[20px] border border-[#ECE9DD] bg-primary-cream p-[18px]">
+      <div className="grid grid-cols-[1.4fr_repeat(4,1fr)] gap-1.5 text-center text-xs font-semibold text-forest-ink/65">
+        <span />
+        {ENTITIES.map((e) => (
+          <span key={e}>{e}</span>
+        ))}
+      </div>
+      <div className="mt-2 flex flex-col gap-1.5">
+        {ACCESS.map((row) => (
+          <div key={row.role} className="grid grid-cols-[1.4fr_repeat(4,1fr)] items-center gap-1.5">
+            <span className="text-[13px] font-medium">{row.role}</span>
+            {row.cells.map((c, i) => (
+              <span key={i} className={`h-7 rounded-lg ${CELL[c]}`} />
+            ))}
           </div>
         ))}
+      </div>
+      <div className="mt-3.5 flex items-center gap-2.5 rounded-xl border border-sand-line bg-white px-3 py-2.5 text-xs text-forest-ink/75">
+        <span className="size-2 flex-none rounded-full bg-primary-green-600 shadow-[0_0_0_3px_rgba(70,131,88,0.18)]" />
+        <span>
+          <strong className="font-semibold text-forest-ink">Support session</strong> approved by your admin
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function IconTile({ icon: Icon }) {
+  return (
+    <span aria-hidden="true" className="flex size-13 items-center justify-center rounded-2xl bg-[#E3F0E0] text-primary-green-700">
+      <Icon className="size-6" strokeWidth={2} />
+    </span>
+  );
+}
+
+/** Grid of security controls: access, connection, migration, encryption, incidents. */
+export default function SecurityOverview() {
+  return (
+    <section aria-labelledby="controls-heading" className="bg-primary-cream px-6 py-24 text-forest-ink lg:py-32">
+      <div className="mx-auto max-w-[1240px]">
+        <div className="grid items-end gap-x-18 gap-y-6 lg:grid-cols-2">
+          <h2
+            id="controls-heading"
+            className="font-new-serif text-[42px] font-normal leading-[1.06] tracking-tight sm:text-[56px]"
+          >
+            Controls your auditors{" "}
+            <span className="italic text-primary-green-700">will recognise.</span>
+          </h2>
+          <p className="text-[17px] leading-[1.7] text-forest-ink/75">
+            Access, connection, migration and response, each built to hold up to
+            the questions your security review will ask.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          {/* Access */}
+          <div className={`${card} border border-sand-line bg-white lg:col-span-2`}>
+            <div className="grid items-center gap-x-10 gap-y-8 md:grid-cols-2">
+              <div>
+                <h3 className={cardTitle}>Who can see what</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-forest-ink/75">
+                  Permissions are scoped by entity and enforced at the query
+                  layer, not just the interface. Single sign-on ties access to
+                  your directory, so removing someone there removes them here.
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-forest-ink/75">
+                  Our staff hold no standing access. Support sessions are
+                  requested, approved, time-boxed and logged.
+                </p>
+              </div>
+              <AccessMatrix />
+            </div>
+          </div>
+
+          {/* Connect */}
+          <div className={`${card} relative overflow-hidden bg-forest-900 text-white`}>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-[120px] -bottom-[140px] size-[340px] rounded-full bg-[radial-gradient(closest-side,rgba(212,245,122,0.25),transparent)]"
+            />
+            <div className="relative">
+              <div aria-hidden="true" className="flex gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-lime-accent px-3.5 py-2 text-sm font-semibold text-forest-900">
+                  <CheckIcon className="size-3.5" strokeWidth={2.6} />
+                  Read
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/18 px-3.5 py-2 text-sm font-semibold text-white/45 line-through">
+                  <XIcon className="size-3.5" strokeWidth={2.6} />
+                  Write
+                </span>
+              </div>
+              <h3 className={`${cardTitle} mt-7`}>How we connect</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-white/70">
+                Live systems connect with read-only, least-privilege credentials
+                over TLS. Legacy systems are extracted in supervised sessions
+                alongside your team.
+              </p>
+            </div>
+          </div>
+
+          {/* Migration */}
+          <div className={`${card} border border-[#CFE3C8] bg-linear-140 from-[#DDF0DA] to-[#EAF7BF]`}>
+            <div aria-hidden="true" className="flex flex-col gap-2">
+              <div className="flex justify-between text-xs font-semibold text-[#3E5245]">
+                <span>Source system</span>
+                <span>1,284,019</span>
+              </div>
+              <div className="h-2.5 rounded-full bg-primary-green-600" />
+              <div className="mt-1.5 flex justify-between text-xs font-semibold text-[#3E5245]">
+                <span>Emulsion</span>
+                <span>1,284,019</span>
+              </div>
+              <div className="h-2.5 rounded-full bg-forest-900" />
+              <span className="mt-2 inline-flex items-center gap-1.5 self-start rounded-full bg-primary-green-700 px-3 py-1 text-xs font-semibold text-white">
+                <CheckIcon className="size-3" strokeWidth={3} />
+                Reconciled
+              </span>
+            </div>
+            <h3 className={`${cardTitle} mt-6`}>Migration integrity</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-[#3E5245]">
+              Every record is reconciled against source, and the old system runs
+              in parallel. The extraction report is yours to keep as audit
+              evidence.
+            </p>
+          </div>
+
+          {/* Encryption */}
+          <div className={`${card} border border-sand-line bg-white`}>
+            <IconTile icon={LockIcon} />
+            <h3 className={`${cardTitle} mt-6`}>Encrypted everywhere</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-forest-ink/75">
+              AES-256 at rest, TLS in transit. Backups are encrypted too, and
+              restores are tested on a schedule rather than assumed.
+            </p>
+          </div>
+
+          {/* Incidents */}
+          <div className={`${card} border border-sand-line bg-white`}>
+            <IconTile icon={BellIcon} />
+            <h3 className={`${cardTitle} mt-6`}>Incident response</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-forest-ink/75">
+              Every incident follows a documented runbook. If your data is ever
+              affected, you hear from us directly, not from a status page.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

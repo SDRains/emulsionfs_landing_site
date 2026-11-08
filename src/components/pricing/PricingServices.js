@@ -63,7 +63,7 @@ const SERVICES = [
   {
     icon: ShieldCheckIcon,
     title: "Ongoing support & security",
-    body: "Dedicated encrypted databases, SOC 2 Type II controls, audit-ready exports and support through every close.",
+    body: "Dedicated encrypted databases, role-based access, audit-ready exports and support through every close.",
     look: "white",
   },
 ];

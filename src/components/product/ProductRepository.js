@@ -19,7 +19,7 @@ const OPTIONS = [
     points: [
       "Dedicated database per customer",
       "AES-256 at rest, TLS in transit",
-      "SOC 2 Type II audited",
+      "Every action logged for audit",
     ],
     dark: true,
   },

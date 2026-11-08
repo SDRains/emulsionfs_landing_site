@@ -5,6 +5,7 @@ import SecurityHero from "@/components/security/SecurityHero";
 import SecurityDeployments from "@/components/security/SecurityDeployments";
 import SecurityDataFlow from "@/components/security/SecurityDataFlow";
 import SecurityOverview from "@/components/security/SecurityOverview";
+import SecurityPackage from "@/components/security/SecurityPackage";
 
 export default function Security() {
     return (
@@ -20,6 +21,7 @@ export default function Security() {
                 <SecurityDeployments />
                 {/*<SecurityDataFlow />*/}
                 <SecurityOverview />
+                <SecurityPackage />
             </main>
             <Footer />
         </div>

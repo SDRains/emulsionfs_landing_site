@@ -156,8 +156,8 @@ const SECTIONS = [
     title: "Security",
     body: (
       <LegalP>
-        We operate under SOC 2 Type II audited controls, encrypt data at rest and in transit, and
-        limit access with role-based permissions. No system is perfectly secure, but we work to
+        We encrypt data at rest and in transit, limit access with role-based permissions, and log
+        access to customer data. No system is perfectly secure, but we work to
         protect your information and will notify you of a breach as the law requires.
       </LegalP>
     ),
