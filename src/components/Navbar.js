@@ -101,10 +101,10 @@ export default function Navbar({ activePage = "home", tone = "light" }) {
             Log in
           </Link>
           <Link
-            href="/signup"
+            href="/contact?intent=demo"
             className={`rounded-full px-[22px] py-2.5 text-base font-semibold transition-colors ${t.signup}`}
           >
-            Sign up
+            Request a Demo
           </Link>
         </div>
 
