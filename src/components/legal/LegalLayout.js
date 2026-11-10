@@ -46,6 +46,62 @@ export function LegalList({ items }) {
   );
 }
 
+/** Bold lead-in at the start of a paragraph or list item ("Our role."). */
+export function LegalLead({ children }) {
+  return <strong className="font-semibold text-forest-ink">{children}</strong>;
+}
+
+export function LegalLink({ href, children }) {
+  const external = href.startsWith("http");
+  return (
+    <a
+      href={href}
+      className="font-medium text-primary-green-700 underline decoration-primary-green-600/40 underline-offset-2 hover:decoration-primary-green-700"
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      {children}
+    </a>
+  );
+}
+
+/**
+ * Simple data table for legal copy. Scrolls sideways on narrow screens
+ * rather than squashing columns.
+ *
+ * @param {string} caption  Read by screen readers only.
+ * @param {string[]} head
+ * @param {Array<Array<React.ReactNode>>} rows
+ */
+export function LegalTable({ caption, head, rows }) {
+  return (
+    <div className="mt-4 overflow-x-auto rounded-[18px] border border-sand-line">
+      <table className="w-full min-w-[560px] border-collapse text-left text-[15px] leading-relaxed">
+        <caption className="sr-only">{caption}</caption>
+        <thead className="bg-primary-cream">
+          <tr>
+            {head.map((h) => (
+              <th key={h} scope="col" className="px-4 py-3 text-[13px] font-semibold text-forest-ink/70">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, r) => (
+            <tr key={r} className="border-t border-[#EEECE3] align-top">
+              {row.map((cell, c) => (
+                <td key={c} className={`px-4 py-3 ${c === 0 ? "font-medium text-forest-ink" : "text-forest-ink/80"}`}>
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export function ContactChips({ items }) {
   return (
     <div className="mt-4 flex flex-wrap gap-2.5">
